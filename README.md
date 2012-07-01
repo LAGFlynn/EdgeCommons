@@ -46,6 +46,8 @@ Do you have cool extension ideas? You are welcome to join us!
 Released under MIT license (open source)
 [Link](http://www.opensource.org/licenses/mit-license.html)
 
+***
+
 Happy Coding,
 
 Simon Widjaja and friends
