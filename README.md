@@ -21,6 +21,7 @@ Edge is Adobe's new flagship tool for creative web animations. Still in preview 
 Visit official website at [edgecommons.org](http://www.edgecommons.org)
 
 **Features so far: (more to come)**
+
 - Advanced Logging (different levels, log group and additional log targets)
 - Configuration (external or internal Configuration layer)
 - Script Loader (JavaScript and CSS with simple callback)
@@ -30,9 +31,14 @@ Visit official website at [edgecommons.org](http://www.edgecommons.org)
 - We've got plenty more the pipeline ;) 
 
 **Quickstart Guide**
+
 Put this line in the compositionReady event of your Edge composition and you are ready to go:
 
 ``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.3.0.js"});``
+
+**Contribute**
+
+Do you have cool extension ideas? You are welcome to join us!
 
 Happy Coding,
 
