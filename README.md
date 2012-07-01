@@ -41,6 +41,10 @@ Visit official website at [edgecommons.org](http://www.edgecommons.org) (in prog
 
 Do you have cool extension ideas? You are welcome to join us!
 
+**License**
+Released under MIT license (open source)
+[Link](http://www.opensource.org/licenses/mit-license.html)
+
 Happy Coding,
 
 Simon Widjaja and friends
