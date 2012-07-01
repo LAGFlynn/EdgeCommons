@@ -28,7 +28,7 @@ Visit official website at [edgecommons.org](http://www.edgecommons.org)
 - Sound (integration of CreateJS/SoundJS by Grant Skinner)
 - Data Injection (inject Data from HTML into the Edge composition)
 - Drupal Module to load Edge compositions and inject data easily (by Timm Jansen)
-- We've got plenty more the pipeline ;) 
+- We've got plenty more in the pipeline ;) 
 
 **Quickstart Guide**
 
