@@ -25,7 +25,7 @@ Edge is Adobe's new flagship tool for creative web animations. Still in preview 
 
 **Is there a website with some examples and documentation?**
 
-Visit official website at [edgecommons.org](http://www.edgecommons.org)
+Visit official website at [edgecommons.org](http://www.edgecommons.org) (in progress)
 
 **Features so far: (more to come)**
 
