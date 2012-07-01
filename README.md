@@ -20,6 +20,15 @@ Edge is Adobe's new flagship tool for creative web animations. Still in preview 
 
 Visit official website at [edgecommons.org](http://www.edgecommons.org)
 
+**Features so far: (more to come)**
+- Advanced Logging (different levels, log group and additional log targets)
+- Configuration (external or internal Configuration layer)
+- Script Loader (JavaScript and CSS with simple callback)
+- Sound (integration of CreateJS/SoundJS by Grant Skinner)
+- Data Injection (inject Data from HTML into the Edge composition)
+- Drupal Module to load Edge compositions and inject data easily (by Timm Jansen)
+- We've got plenty more the pipeline ;) 
+
 **Quickstart Guide**
 Put this line in the compositionReady event of your Edge composition and you are ready to go:
 
