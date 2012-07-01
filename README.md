@@ -1,9 +1,8 @@
 EdgeCommons
 ===========
+A library for common tasks in Adobe Edge. By Simon Widjaja.
 
-EdgeCommons is a library for common tasks in Adobe Edge. By Simon Widjaja.
-
-
+***
 
 ### We love Adobe Edge. And it's not even final yet. But we already take it to the next level. Join us!
 
@@ -11,7 +10,7 @@ EdgeCommons is a library for common tasks in Adobe Edge. By Simon Widjaja.
 
 **What is EdgeCommons?**
 
-EdgeCommons is a library for common tasks in Adobe Edge by Simon Widjaja and Friends.
+EdgeCommons is a library for common tasks in Adobe Edge by Simon Widjaja and friends.
 
 **What is Adobe Edge?**
 
@@ -23,8 +22,9 @@ Visit official website at [edgecommons.org](http://www.edgecommons.org)
 
 **Quickstart Guide**
 Put this line in the compositionReady event of your Edge composition and you are ready to go:
+
 ``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.3.0.js"});``
 
 Happy Coding,
 
-Simon Widjaja and Friends
+Simon Widjaja and friends
