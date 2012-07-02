@@ -1,7 +1,4 @@
-EdgeCommons
-===========
-A library for common tasks in Adobe Edge. By Simon Widjaja.
-
+![EdgeCommons by Simon Widjaja](http://simonwidjaja.github.com/EdgeCommons/images/EdgeCommonsHeader.png)
 ***
 
 ### We love Adobe Edge. And it's not even final yet. But we already take it to the next level. Join us!
