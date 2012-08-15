@@ -131,7 +131,7 @@
                 //console.log("calcLayout: "+calcLayout);
 
                 if (_currentAdaptiveLayout != calcLayout ) {
-                    LOG.debug( "Switching to: layout"+calcLayout, LOG_GROUP );
+                    Log.debug( "Switching to: layout"+calcLayout, LOG_GROUP );
                     _currentAdaptiveLayout = calcLayout;
                     container.html("");
                     sym.createChildSymbol("layout"+calcLayout, adaptiveContainer);
