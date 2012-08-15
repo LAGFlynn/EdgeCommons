@@ -11,7 +11,7 @@ java -jar compiler.jar \
     --compilation_level SIMPLE_OPTIMIZATIONS \
     --formatting PRINT_INPUT_DELIMITER \
 \
-    --js_output_file ../sprint/EdgeCommons-Sprint-0.0.3.js \
+    --js_output_file ../sprint/EdgeCommons-Sprint-0.0.4.js \
 \
     --js ../src/libs/Modulog-0.0.2.js \
     --js ../src/EdgeCommons.js \
@@ -23,14 +23,14 @@ echo "Job done: All";
 
 
 
-java -jar compiler.jar \
-    --compilation_level SIMPLE_OPTIMIZATIONS \
-    --formatting PRINT_INPUT_DELIMITER \
-\
-    --js_output_file ../sprint/EdgeCommons-Essentials-Sprint-0.0.3.js \
-\
-    --js ../src/libs/Modulog-0.0.2.js \
-    --js ../src/EdgeCommons.js \
-    --js ../src/modules/Core/Core.js \
+#java -jar compiler.jar \
+#    --compilation_level SIMPLE_OPTIMIZATIONS \
+#    --formatting PRINT_INPUT_DELIMITER \
+#\
+#    --js_output_file ../sprint/EdgeCommons-Essentials-Sprint-0.0.4.js \
+#\
+#    --js ../src/libs/Modulog-0.0.2.js \
+#    --js ../src/EdgeCommons.js \
+#    --js ../src/modules/Core/Core.js \
 
-echo "Job done: Essentials";
+#echo "Job done: Essentials";
