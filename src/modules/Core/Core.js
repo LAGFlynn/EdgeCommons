@@ -36,7 +36,7 @@
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.0.2";
+    C.VERSION = "0.0.4";
 
     //------------------------------------
     // Private
@@ -44,6 +44,9 @@
     // Logger
     var Log = ModulogLog;
     var LOG_GROUP = "EdgeCommons | Core";
+    // Adaptive Layouts
+    var _adaptiveLayouts = null;
+    var _currentAdaptiveLayout = null;
 
 
     //------------------------------------
@@ -99,16 +102,71 @@
         }
     };
 
+    /**
+     * Adaptive (alpha)
+     */
+    EC.setAdaptiveLayouts = function(adaptiveLayouts) {
+        if (!adaptiveLayouts || !adaptiveLayouts.length) {
+            Log.error( "Error in setAdaptiveLayouts(). Argument 'layouts' is not optional and has to be an array." );
+        }
+        _adaptiveLayouts = adaptiveLayouts;
+    };
+    EC.applyAdaptiveLayout = function (sym, adaptiveContainer) {
+        try {
+            sym.setVariable("doResizing", function(){
+                var stage = sym.getComposition().getStage();
+                var width = stage.getSymbolElement().width();
+
+                // responsive container
+                var container = sym.$( adaptiveContainer );
+
+                var buffer = 20;
+                var calcLayout = null;
+                $.each( _adaptiveLayouts, function(index, layout) {
+                    if(width >= layout - buffer){
+                        calcLayout = layout;
+                    }
+                });
+
+                //console.log("calcLayout: "+calcLayout);
+
+                if (_currentAdaptiveLayout != calcLayout ) {
+                    LOG.debug( "Switching to: layout"+calcLayout, LOG_GROUP );
+                    _currentAdaptiveLayout = calcLayout;
+                    container.html("");
+                    sym.createChildSymbol("layout"+calcLayout, adaptiveContainer);
+                }
+                // Display mode (debug only)
+                sym.$("currentLayout").html(sym.getVariable("layout"));
+                //sym.stop(mode);
+
+            });
+
+            // Execute on startup
+            var doResizing = sym.getVariable("doResizing");
+            doResizing();
+
+        }
+        catch(error) {
+            console.error(error);
+        }
+    };
     //------------------------------------
     // Init
     //------------------------------------
     EC.Core = C;
 
+    // Expose Logging
     EC.Log = Log;
     EC.debug = Log.debug;
     EC.info = Log.info;
     EC.warn = Log.warn;
     EC.error = Log.error;
-    Log.debug("v" + C.VERSION, LOG_GROUP);
+
+    // Expose Configuration
+    EC.Config = MConfig;
+
+    //Log.debug("v" + C.VERSION, LOG_GROUP);
+
 
 })(EdgeCommons);

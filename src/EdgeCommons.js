@@ -51,11 +51,12 @@
     //------------------------------------
     // Public
     //------------------------------------
-    EdgeCommons.VERSION = "0.0.2";
+    EdgeCommons.VERSION = "0.0.4";
 
     //------------------------------------
     // Private
     //------------------------------------
+    var LOG_GROUP = "EdgeCommons";
 
     //------------------------------------
     // Methods
@@ -65,5 +66,6 @@
     // Init
     //------------------------------------
     window.EC = window.EdgeCommons = EdgeCommons;
+    Log.debug("v" + EdgeCommons.VERSION, LOG_GROUP);
 
 })(window);

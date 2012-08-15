@@ -117,6 +117,6 @@
     // Init
     //------------------------------------
     EC.Sound = C;
-    Log.debug("v" + C.VERSION, LOG_GROUP);
+    //Log.debug("v" + C.VERSION, LOG_GROUP);
 
 })(EdgeCommons);
