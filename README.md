@@ -13,16 +13,16 @@ EdgeCommons is a library for common tasks in Adobe Edge by Simon Widjaja and fri
 
 Put this line in the compositionReady event of your Edge composition and you are ready to go:
 
-``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.3.0.js"});``
+``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.4.0.js"});``
 
 
 **What is Adobe Edge?**
 
 Edge is Adobe's new flagship tool for creative web animations. Still in preview mode but almost ready for prime time. You can get the current preview release right [here](http://labs.adobe.com/technologies/edge/)
 
-**Is there a website with some examples and documentation?**
+**Is there a documentation?**
 
-Visit official website at [edgecommons.org](http://www.edgecommons.org) (in progress)
+Yes: [Link](http://simonwidjaja.github.com/EdgeCommons/doc/) (work in progress)
 
 **Features so far: (more to come)**
 
@@ -30,6 +30,7 @@ Visit official website at [edgecommons.org](http://www.edgecommons.org) (in prog
 - Configuration (external or internal Configuration layer)
 - Script Loader (JavaScript and CSS with simple callback)
 - Sound (integration of CreateJS/SoundJS by Grant Skinner)
+- Adaptive Layouts (Different Layouts for different Sizes)
 - Data Injection (inject Data from HTML into the Edge composition)
 - Drupal Module to load Edge compositions and inject data easily (by Timm Jansen)
 - We've got plenty more in the pipeline ;) 
