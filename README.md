@@ -1,24 +1,24 @@
 ![EdgeCommons by Simon Widjaja](http://simonwidjaja.github.com/EdgeCommons/images/EdgeCommonsHeader.png)
 ***
 
-### We love Adobe Edge. And it's not even final yet. But we already take it to the next level. Join us!
+### We love Adobe Edge Animate. And it's not even final yet. But we already take it to the next level. Join us!
 
 ***
 
 **What is EdgeCommons?**
 
-EdgeCommons is a library for common tasks in Adobe Edge by Simon Widjaja and friends.
+EdgeCommons is a library for common tasks in Adobe Edge Animate by Simon Widjaja and friends.
 
 **Quickstart Guide**
 
-Put this line in the compositionReady event of your Edge composition and you are ready to go:
+Put this line in the compositionReady event of your Edge Animate composition and you are ready to go:
 
 ``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.4.0.js"});``
 
 
-**What is Adobe Edge?**
+**What is Adobe Edge Animate?**
 
-Edge is Adobe's new flagship tool for creative web animations. Still in preview mode but almost ready for prime time. You can get the current preview release right [here](http://labs.adobe.com/technologies/edge/)
+Edge Animate is Adobe's new flagship tool for creative web animations. Still in preview mode but almost ready for prime time. You can get the current preview release right [here](http://labs.adobe.com/technologies/edge/)
 
 **Is there a documentation?**
 
