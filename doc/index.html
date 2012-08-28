@@ -32,26 +32,59 @@
             background-color: white;
             border-radius: 10px;
         }
+        
+        a {
+            color: #00a6fa;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #000;
+            text-decoration: underline;
+        }        
     </style>
 </head>
 <body>
 
-<h1>EdgeCommons Documentation</h1><br/><br/>
+<h1>EdgeCommons Documentation (beta)</h1>
+<h2>v0.4.0</h2><br/><br/>
 
 
+<hr/>
+<!-- ================================================================================================================= -->    
+    
+<ul>
+    <li><a href="#Loading">Loading EdgeCommons</a></li>
+    <li><a href="#Logging">Logging</a></li>
+    <li><a href="#Configuration">Configuration</a></li>
+    <li><a href="#Sound">Sound</a></li>
+    <li><a href="#ScriptLoader">ScriptLoader</a></li>
+    <li><a href="#Injection">Data Injection</a></li>
+    <li><a href="#AdpativeLayouts">Adaptive Layouts</a></li>    
+    <li><a href="#Drupal">Drupal</a></li>
+    <li><a href="#Wordpress">Wordpress</a></li>
+</ul>
+    
+
+
+<hr/>
+<!-- ================================================================================================================= -->
+    
+
+<a name="Loading"></a>
 <h2>Loading EdgeCommons</h2>
 
 <h3>Short and painless version</h3>
-Simply put this line in compositionReady of your Edge composition:<br/>
+Simply put this line in compositionReady of your Edge Animate composition:<br/>
 <pre>
-yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.3.0.js"});
+yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.4.0.js"});
 </pre>
 
 <h3>Advanced version</h3>
 If you have to wait until EdgeCommons is setup you can use a callback like this:
 <pre>
 yepnope({
-	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.3.0.js",
+	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.4.0.js",
 	callback: function() {
 		// Your code (e.g. start playing the composition)
 	}
@@ -225,7 +258,7 @@ EC.Sound.play("bassdrum");
 <!-- ================================================================================================================= -->
 
 
-<a name="Loader"></a>
+<a name="ScriptLoader"></a>
 <h2>Loading Scripts</h2>
 coming soon...
 
@@ -288,10 +321,44 @@ for the injected data. This is quiet important in case of multiple compositions 
 <!-- ================================================================================================================= -->
 
 
+<a name="AdaptiveLayouts"></a>
+<h2>Adaptive Layouts (different layouts for specific sizes)</h2>
+First of all you need a div container on the stage (width=100%) with the name "adaptiveContainer".<br/>
+After loading EdgeCommons you can define different layouts by simply calling EC.setAdaptiveLayouts( ) and passing in
+an array of sizes. They will automatically mapped to the corresponding symbols with the prefix "layout" (e.g. layout600 or layout1200).
+<pre>
+yepnope({
+	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.4.0.js",
+	callback: function() {
+		EC.setAdaptiveLayouts( [400, 600, 1200] );
+		EC.applyAdaptiveLayout(sym, "adaptiveContainer");
+	}
+});
+</pre>
+The call of EC.applyAdaptiveLayout( ) then updates the layout immediately. You have to call this function also on Stage.resize, so
+it updates the content everytime the Stage resizes. This will be automated in a future version. Don't forget this is just the first
+proof of concept version ;)
+
+
+<hr />
+<!-- ================================================================================================================= -->
+
+
 <a name="Drupal"></a>
-<h2>Drupal Module: Edge Compositions</h2>
+<h2>Drupal Module: Edge Suite</h2>
 coming soon...<br/>
 Link to download: <a href="http://drupal.org/project/edge_suite" target="_blank">Edge Suite on drupal.org</a>
+
+
+<hr />
+<!-- ================================================================================================================= -->
+
+
+<a name="Wordpress"></a>
+<h2>Wordpress Module: Edge Suite</h2>
+coming soon...<br/>
+Link to download: <a href="http://wordpress.org/extend/plugins/edge-suite/" target="_blank">Edge Suite on wordpress.org</a><br />
+FYI: The drupal module is way more mature so far. But we are working on Wordpress pretty hard.
 
 </body>
 </html>
