@@ -1,7 +1,7 @@
 ![EdgeCommons by Simon Widjaja](http://simonwidjaja.github.com/EdgeCommons/images/EdgeCommonsHeader.png)
 ***
 
-### We love Adobe Edge Animate. And it's not even final yet. But we already take it to the next level. Join us!
+### We love Adobe Edge Animate. This library extends Edge Animate and enables some cool features ;) Join us!
 
 ***
 
@@ -13,7 +13,7 @@ EdgeCommons is a library for common tasks in Adobe Edge Animate by Simon Widjaja
 
 Put this line in the compositionReady event of your Edge Animate composition and you are ready to go:
 
-``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.4.0.js"});``
+``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.6.0.js"});``
 
 
 **What is Adobe Edge Animate?**
@@ -32,7 +32,7 @@ Yes: [Link](http://simonwidjaja.github.com/EdgeCommons/doc/) (work in progress)
 - Sound (integration of CreateJS/SoundJS by Grant Skinner)
 - Adaptive Layouts (Different Layouts for different Sizes)
 - Data Injection (inject Data from HTML into the Edge composition)
-- Drupal Module to load Edge compositions and inject data easily (by Timm Jansen)
+- Drupal and Wordpress modules to load Edge Animate compositions and inject data easily (by Timm Jansen)
 - We've got plenty more in the pipeline ;) 
 
 **Contribute**
