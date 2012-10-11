@@ -37,7 +37,7 @@
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.0.1";
+    C.VERSION = "0.0.2";
     C.soundManifest = null;
 
     //------------------------------------
@@ -111,6 +111,20 @@
         if (instance) {
             instance.onComplete = completeCallback;
         }
+    };
+
+    /**
+     * Stop sound
+     * @param soundId
+     */
+    C.stop = function (soundId, completeCallback) {
+        if (!SoundJS.checkPlugin(true)) {
+            Log.error("Error in SoundJS (SoundJS.checkPlugin(true) failed)", LOG_GROUP);
+            return;
+        }
+        // Stop Sound
+        Log.debug("Stopping sound: " + soundId, LOG_GROUP);
+        var instance = SoundJS.stop(soundId);
     };
 
     //------------------------------------

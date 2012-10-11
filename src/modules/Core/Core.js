@@ -36,7 +36,7 @@
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.0.4";
+    C.VERSION = "0.0.6";
 
     //------------------------------------
     // Private
@@ -105,12 +105,20 @@
     /**
      * Adaptive (alpha)
      */
-    EC.setAdaptiveLayouts = function(adaptiveLayouts) {
+    EC.setAdaptiveLayouts = function(adaptiveLayouts, sym, adaptiveContainer) {
         if (!adaptiveLayouts || !adaptiveLayouts.length) {
             Log.error( "Error in setAdaptiveLayouts(). Argument 'layouts' is not optional and has to be an array." );
         }
         _adaptiveLayouts = adaptiveLayouts;
-    };
+        
+        // Register event handler for resize, so the right adaptive layout gets displayed
+        // whenever the windows is being resized
+        $( window ).resize( function(e) {
+            EC.applyAdaptiveLayout( sym, adaptiveContainer );
+        });
+        // Execute initially
+        EC.applyAdaptiveLayout( sym, adaptiveContainer );
+    };    
     EC.applyAdaptiveLayout = function (sym, adaptiveContainer) {
         try {
             sym.setVariable("doResizing", function(){
