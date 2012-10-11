@@ -3,12 +3,12 @@ Loading EdgeCommons (EC)
 ---------------------------------------------------------------------
 Short and painless version:
 Simply put this line in compositionReady of your Edge composition:
-yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.3.0.js"});
+yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.6.0.js"});
 
 Advanced version:
 If you have to wait until EdgeCommons is setup you can use a callback like this:
 yepnope({
-	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.3.0.js",
+	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.6.0.js",
 	callback: function() {
 		// Your code (e.g. start playing the composition)
 	}
@@ -84,6 +84,9 @@ EC.Sound.setup(
 
 // Play sound (e.g. on click)
 EC.Sound.play("bassdrum");
+
+// Stop sound (e.g. on click)
+EC.Sound.stop("bassdrum");
 
 
 FAQ
