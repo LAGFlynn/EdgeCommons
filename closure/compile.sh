@@ -8,10 +8,10 @@ echo "Compiling...";
 
 
 java -jar compiler.jar \
-    --compilation_level SIMPLE_OPTIMIZATIONS \
-    --formatting PRINT_INPUT_DELIMITER \
+    --compilation_level WHITESPACE_ONLY \
+    --formatting PRETTY_PRINT \
 \
-    --js_output_file ../sprint/EdgeCommons-Sprint-0.0.6.js \
+    --js_output_file ../sprint/EdgeCommons-Sprint-0.0.7.js \
 \
     --js ../src/libs/Modulog-0.0.2.js \
     --js ../src/EdgeCommons.js \
@@ -19,18 +19,32 @@ java -jar compiler.jar \
     --js ../src/modules/Preload/Preload.js \
     --js ../src/modules/Sound/Sound.js \
 
-echo "Job done: All";
-
-
+echo "Job done: Debug";
 
 java -jar compiler.jar \
     --compilation_level SIMPLE_OPTIMIZATIONS \
     --formatting PRINT_INPUT_DELIMITER \
 \
-    --js_output_file ../sprint/EdgeCommons-Essentials-Sprint-0.0.6.js \
+    --js_output_file ../sprint/EdgeCommons-Sprint-0.0.7.min.js \
 \
     --js ../src/libs/Modulog-0.0.2.js \
     --js ../src/EdgeCommons.js \
     --js ../src/modules/Core/Core.js \
+    --js ../src/modules/Preload/Preload.js \
+    --js ../src/modules/Sound/Sound.js \
 
-echo "Job done: Essentials";
+echo "Job done: Minified";
+
+
+
+#java -jar compiler.jar \
+#    --compilation_level SIMPLE_OPTIMIZATIONS \
+#    --formatting PRINT_INPUT_DELIMITER \
+#\
+#    --js_output_file ../sprint/EdgeCommons-Essentials-Sprint-0.0.7.js \
+#\
+#    --js ../src/libs/Modulog-0.0.2.js \
+#    --js ../src/EdgeCommons.js \
+#    --js ../src/modules/Core/Core.js \
+#
+#echo "Job done: Essentials";

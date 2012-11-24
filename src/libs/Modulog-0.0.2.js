@@ -11,7 +11,7 @@
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.0.1";
+    C.VERSION = "0.0.2";
     //------------------------------------
     // Private
     //------------------------------------
@@ -36,7 +36,7 @@
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.0.1";
+    C.VERSION = "0.0.2";
     C.LEVEL_NONE = 0;
     C.LEVEL_ERROR = 1;
     C.LEVEL_WARN = 2;
@@ -58,8 +58,11 @@
     C.debug = function (msg, group, object) {
         if (ModulogLog.level >= ModulogLog.LEVEL_DEBUG) {
             var out = "[ DEBUG " + ((group) ? "| " + group + " " : "") + "] " + msg;
-            if ((typeof console != "undefined") && (typeof console.log != "undefined")) {
+            if ((typeof console != "undefined") && (typeof console.debug != "undefined")) {
                 (object) ? console.debug(out, object) : console.debug(out);
+            } 
+            else if ((typeof console != "undefined") && (typeof console.info != "undefined")) {
+                (object) ? console.info(out, object) : console.info(out);                
             }
             ModulogLog.__delegate(out, object);
         }
@@ -67,7 +70,7 @@
     C.info = function (msg, group, object) {
         if (ModulogLog.level >= ModulogLog.LEVEL_INFO) {
             var out = "[ INFO " + ((group) ? "| " + group + " " : "") + "] " + msg;
-            if ((typeof console != "undefined") && (typeof console.log != "undefined")) {
+            if ((typeof console != "undefined") && (typeof console.info != "undefined")) {
                 (object) ? console.info(out, object) : console.info(out);
             }
             ModulogLog.__delegate(out, object);
@@ -76,7 +79,7 @@
     C.warn = function (msg, group, object) {
         if (ModulogLog.level >= ModulogLog.LEVEL_WARN) {
             var out = "[ WARN " + ((group) ? "| " + group + " " : "") + "] " + msg;
-            if ((typeof console != "undefined") && (typeof console.log != "undefined")) {
+            if ((typeof console != "undefined") && (typeof console.warn != "undefined")) {
                 (object) ? console.warn(out, object) : console.warn(out);
             }
             ModulogLog.__delegate(out, object);
@@ -85,7 +88,7 @@
     C.error = function (msg, group, object) {
         if (ModulogLog.level >= ModulogLog.LEVEL_ERROR) {
             var out = "[ ERROR " + ((group) ? "| " + group + " " : "") + "] " + msg;
-            if ((typeof console != "undefined") && (typeof console.log != "undefined")) {
+            if ((typeof console != "undefined") && (typeof console.error != "undefined")) {
                 (object) ? console.error(out, object) : console.error(out);
             }
             ModulogLog.__delegate(out, object);
