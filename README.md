@@ -5,6 +5,11 @@
 
 ***
 
+Current realease: 0.7.0
+Several IE bugfixes
+
+***
+
 **What is EdgeCommons?**
 
 EdgeCommons is a library for common tasks in Adobe Edge Animate by Simon Widjaja and friends.
@@ -13,7 +18,7 @@ EdgeCommons is a library for common tasks in Adobe Edge Animate by Simon Widjaja
 
 Put this line in the compositionReady event of your Edge Animate composition and you are ready to go:
 
-``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.6.0.js"});``
+``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.0.js"});``
 
 
 **What is Adobe Edge Animate?**
