@@ -20,11 +20,6 @@ Put this line in the compositionReady event of your Edge Animate composition and
 
 ``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.1.js"});``
 
-
-**What is Adobe Edge Animate?**
-
-Edge Animate is Adobe's new flagship tool for creative web animations. Still in preview mode but almost ready for prime time. You can get the current preview release right [here](http://labs.adobe.com/technologies/edge/)
-
 **Is there a documentation?**
 
 Yes: [Link](http://simonwidjaja.github.com/EdgeCommons/doc/) (work in progress)
