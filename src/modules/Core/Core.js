@@ -1,6 +1,6 @@
 /**
  * EdgeCommons
- * Dirty little Helpers for Adobe Edge
+ * Dirty little Helpers for Adobe Edge Animate
  * by Simon Widjaja
  *
  * Copyright (c) 2012 Simon Widjaja
@@ -103,13 +103,21 @@
     };
 
     /**
-     * Adaptive (alpha)
+     * Adaptive
      */
     EC.setAdaptiveLayouts = function(adaptiveLayouts, sym, adaptiveContainer) {
         if (!adaptiveLayouts || !adaptiveLayouts.length) {
             Log.error( "Error in setAdaptiveLayouts(). Argument 'layouts' is not optional and has to be an array." );
+            return;
         }
         _adaptiveLayouts = adaptiveLayouts;
+        
+        // backwards compatibilty
+        // (adaptive layouts array will be stored, but resize handler will not be added 
+        // automatically since in older versions (e.g. 0.4.0 @ Adobe TV) applyAdaptiveLayout() will be called manually
+        if (!sym) {
+            return;
+        }
         
         // Register event handler for resize, so the right adaptive layout gets displayed
         // whenever the windows is being resized

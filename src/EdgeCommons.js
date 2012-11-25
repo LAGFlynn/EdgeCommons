@@ -1,6 +1,6 @@
 /**
  * EdgeCommons
- * Dirty little Helpers for Adobe Edge
+ * Dirty little Helpers for Adobe Edge Animate
  * by Simon Widjaja
  *
  * Additional Contributors:
