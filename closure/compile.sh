@@ -11,7 +11,7 @@ java -jar compiler.jar \
     --compilation_level WHITESPACE_ONLY \
     --formatting PRETTY_PRINT \
 \
-    --js_output_file ../sprint/EdgeCommons-Sprint-0.0.7.js \
+    --js_output_file ../sprint/EdgeCommons-0.7.1.js \
 \
     --js ../src/libs/Modulog-0.0.2.js \
     --js ../src/EdgeCommons.js \
@@ -25,7 +25,7 @@ java -jar compiler.jar \
     --compilation_level SIMPLE_OPTIMIZATIONS \
     --formatting PRINT_INPUT_DELIMITER \
 \
-    --js_output_file ../sprint/EdgeCommons-Sprint-0.0.7.min.js \
+    --js_output_file ../sprint/EdgeCommons-0.7.1.min.js \
 \
     --js ../src/libs/Modulog-0.0.2.js \
     --js ../src/EdgeCommons.js \
@@ -41,7 +41,7 @@ echo "Job done: Minified";
 #    --compilation_level SIMPLE_OPTIMIZATIONS \
 #    --formatting PRINT_INPUT_DELIMITER \
 #\
-#    --js_output_file ../sprint/EdgeCommons-Essentials-Sprint-0.0.7.js \
+#    --js_output_file ../sprint/EdgeCommons-Essentials-Sprint-0.7.1.js \
 #\
 #    --js ../src/libs/Modulog-0.0.2.js \
 #    --js ../src/EdgeCommons.js \
