@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet' type='text/css'>
+
+    <!-- Style -->
+    <style type="text/css">
+        body {
+            font-family: 'Glegoo', serif;
+            font-size: 14px;
+            padding: 25px;
+        }
+
+        hr {
+            background: none;
+            border: dashed #00a6fa;
+            border-width: 2px 0 0 0;
+            height: 0;
+            width: 100%;
+            margin: 30px 0 60px 0;
+        }
+
+        h2 {
+            color: #00a6fa;
+        }
+
+        pre {
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        
+        a {
+            color: #00a6fa;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #000;
+            text-decoration: underline;
+        }        
+    </style>
+</head>
+<body>
+
+<h1>EdgeCommons Documentation (beta)</h1>
+<h2>v0.4.0</h2><br/><br/>
+
+
+<hr/>
+<!-- ================================================================================================================= -->    
+    
+<ul>
+    <li><a href="#Loading">Loading EdgeCommons</a></li>
+    <li><a href="#Logging">Logging</a></li>
+    <li><a href="#Configuration">Configuration</a></li>
+    <li><a href="#Sound">Sound</a></li>
+    <li><a href="#ScriptLoader">ScriptLoader</a></li>
+    <li><a href="#Injection">Data Injection</a></li>
+    <li><a href="#AdaptiveLayouts">Adaptive Layouts</a></li>    
+    <li><a href="#Drupal">Drupal</a></li>
+    <li><a href="#Wordpress">Wordpress</a></li>
+</ul>
+    
+
+
+<hr/>
+<!-- ================================================================================================================= -->
+    
+
+<a name="Loading"></a>
+<h2>Loading EdgeCommons</h2>
+
+<h3>Short and painless version</h3>
+Simply put this line in compositionReady of your Edge Animate composition:<br/>
+<pre>
+yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.0.js"});
+</pre>
+
+<h3>Advanced version</h3>
+If you have to wait until EdgeCommons is setup you can use a callback like this:
+<pre>
+yepnope({
+	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.0.js",
+	callback: function() {
+		// Your code (e.g. start playing the composition)
+	}
+});
+</pre>
+
+
+<hr/>
+<!-- ================================================================================================================= -->
+
+<a name="Logging"></a>
+<h2>Logging</h2>
+When your compositions get bigger and your scripts more complex you can't live without it: Logging. With EdgeCommons you
+get more advanced logging capabilities than console.log.<br/>
+
+<h3>Let's keep it simple</h3>
+<pre>
+// Simple log to the console
+EC.info( "Logging with EdgeCommons is easy" );
+</pre>
+
+<h3>Different log levels</h3>
+<pre>
+EC.info( "Message" );
+EC.debug( "Message" );
+EC.warn( "Message" );
+EC.error( "Message" );
+</pre>
+
+<h3>Logging groups (works with all levels)</h3>
+<pre>
+EC.info( "Message", "GROUP NAME" );
+or
+EC.info( "Message", "Compostion Intro" );
+</pre>
+
+<h3>Dumping complex data types to the console (works with all levels)</h3>
+<pre>
+EC.info( "Message", "GROUP", complexObject );
+or
+EC.info( "Message", "GROUP", sym );
+</pre>
+
+<h3>Setting the current log level (filter)</h3>
+<pre>
+// No logging at all
+EC.Log.level = EC.Log.LEVEL_NONE;
+// Only log error
+EC.Log.level = EC.Log.LEVEL_ERROR;
+// Only log warn and error
+EC.Log.level = EC.Log.LEVEL_WARN;
+// Only log info, warn and error
+EC.Log.level = EC.Log.LEVEL_INFO;
+// Log everything
+EC.Log.level = EC.Log.LEVEL_DEBUG;
+</pre>
+
+<h3>Additional log targets (e.g. alert, server call to send email etc.)</h3>
+<pre>
+// Add log target to also alert the logs
+EC.Log.addLogTarget(function(msg){
+  alert(msg);
+});
+EC.error("This is a error log in the console AND as alert dialog");
+</pre>
+
+
+<hr/>
+<!-- ================================================================================================================= -->
+
+
+<a name="Configuration"></a>
+<h2>Configuration</h2>
+Sometimes you want to have a global configuration that can be used all over your composition easily.
+With EdgeCommons you get the infrastructure to setup a configuration object using an external JSON file or set it up during initialization of the composition.
+
+<h3>Setup during initialization (e.g. in compositionReady)</h3>
+You can simply init the global configuration object by passing a object to the init() method:
+<pre>
+EC.Config.init({
+	url: "http://www.some-url.com",
+	user: {
+		firstname: "Simon",
+		lastname: "Widjaja"
+	}
+});
+</pre>
+
+<h3>Setup with external JSON file and ready callback:</h3>
+You also can use an external JSON file and a callback function that will be called when the configuration is loaded.
+You can use this callback function to use the configuration directly or start playing the composition initially.
+<pre>
+EC.Config.init("config.json", function() {
+    EC.info( "External config is ready" );
+    var testUrl = EC.Config.get( "testUrl" );
+    sym.$("txtConfigTestUrl").html( testUrl );
+});
+</pre>
+The external JSON file could look like this:
+<pre>
+{
+    "testUrl": "http://www.google.de"
+}
+</pre>
+
+<h3>Reading configuration values</h3>
+<pre>
+EC.Config.get("CONFIG_PATH");
+or
+EC.Config.get("emailURL");
+or
+EC.Config.get("server.url.port");
+</pre>
+
+<h3>Setting configuration values manually</h3>
+<pre>
+EC.Config.set("CONFIG_PATH", value);
+or
+EC.Config.set("emailURL", "http://www.mydomain.com/email.php");
+</pre>
+
+
+<hr />
+<!-- ================================================================================================================= -->
+
+
+<a name="Sound"></a>
+<h2>Sound</h2>
+
+EC.Sound is a simple wrapper for SoundJS that enables Edge to play all kind of sounds easily. You first have to setup
+the sound system by creating a simple manifest (Array with all sound references) and pass it to the setup() method. Then
+you can use the play() method to play the sounds. So let there be sound!
+
+<h3>Prepare sounds</h3>
+Since the sounds have to be HTML5 compatible you should convert your sound files to MP3 <strong>and</strong> OGG. Adobe Audition is our tool of choice. But you can use all sound tools that can export these formats.
+
+<h3>Load sounds</h3>
+<pre>
+// Load sound manifest (e.g. in creationComplete)
+var assetsPath = "media/";
+EC.Sound.setup(
+    [
+        {src: assetsPath + "bassdrum.mp3|" + assetsPath + "bassdrum.ogg", id: "bassdrum"},
+        {src: assetsPath + "snaredrum.mp3|" + assetsPath + "snaredrum.ogg", id: 'snaredrum'}
+    ],
+    function(){ EC.info("Sound setup finished", "DEMO"); }
+);
+</pre>
+
+<h3>Play sounds</h3>
+<pre>
+// Play sound (e.g. on click)
+EC.Sound.play("bassdrum");
+</pre>
+
+
+<h3>FAQ</h3>
+<ul>
+    <li>
+        For playing sound right after setting up the manifest you can the callback function which is the 2nd argument of the
+        setup() method. This will be called when setup is finished and sound is ready to play.
+    </li>
+    <li>
+        The ability to play sounds depends on the browser. Older browsers may not support sound in HTML. Checkout docs of
+        SoundJS for more information.
+    </li>
+</ul>
+
+
+<hr />
+<!-- ================================================================================================================= -->
+
+
+<a name="ScriptLoader"></a>
+<h2>Loading Scripts</h2>
+coming soon...
+
+
+<hr />
+<!-- ================================================================================================================= -->
+
+
+<a name="Injection"></a>
+<h2>Data Injection</h2>
+You often need to use external data within your composition. You can either load the data from an url via AJAX or
+you can inject the data - by hand or problematically (e.g. by a CMS) - directly into the composition. Data
+injection can often be faster then URL calls and is especially suitable for passing configuration data.
+
+<h3>Usage</h3>
+Edge Commons provides an easy way to get you started. Just inject JSON formatted
+data into the stage DIV in your main HTML index file:
+
+<pre>
+&lt;div id="Stage" class="EDGE-189325992"&gt;
+    &lt;script class="data" type="text/data"&gt;
+        {
+        url: "http://www.some-url.com",
+        user: {
+            firstname: "Simon",
+            lastname: "Widjaja"
+        }
+    &lt;/script&gt;
+&lt;/div&gt;
+</pre>
+
+You can then access it within an edge action (e.g. your click action):
+<pre>
+    // Get the injected data.
+    var injectedData = EC.getInjectedData(sym);
+
+    // Do something with the data.
+    alter("Hello " + injectedData.firstname + " " + injectedData.lastname);
+</pre>
+
+The function getInjectedData() needs be given a symbol so EdgeCommons knows in which composition to look
+for the injected data. This is quiet important in case of multiple compositions per page.
+
+<h3>FAQ</h3>
+<ul>
+    <li>
+        <b>Why can't I just use the Config stuff from above?</b><br>
+        The config functions are used from within Edge. Injected data helps you to communicate with the "outside" world.
+    </li>
+    <li>
+        <b>I get the error message "EC is not defined", what am I doing wrong?</b><br>
+        This means Edge Commons functionality is being used somewhere before the library is fully loaded.
+        Use the advanced loading version above and place your code within the callback function.
+
+    </li>
+
+</ul>
+
+<hr />
+<!-- ================================================================================================================= -->
+
+
+<a name="AdaptiveLayouts"></a>
+<h2>Adaptive Layouts (different layouts for specific sizes)</h2>
+First of all you need a div container on the stage (width=100%) with the name "adaptiveContainer".<br/>
+After loading EdgeCommons you can define different layouts by simply calling EC.setAdaptiveLayouts( ) and passing in
+an array of sizes. They will automatically mapped to the corresponding symbols with the prefix "layout" (e.g. layout600 or layout1200).
+<pre>
+yepnope({
+	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.4.0.js",
+	callback: function() {
+		EC.setAdaptiveLayouts( [400, 600, 1200] );
+		EC.applyAdaptiveLayout(sym, "adaptiveContainer");
+	}
+});
+</pre>
+The call of EC.applyAdaptiveLayout( ) then updates the layout immediately. You have to call this function also on Stage.resize, so
+it updates the content everytime the Stage resizes. This will be automated in a future version. Don't forget this is just the first
+proof of concept version ;)
+
+
+<hr />
+<!-- ================================================================================================================= -->
+
+
+<a name="Drupal"></a>
+<h2>Drupal Module: Edge Suite</h2>
+coming soon...<br/>
+Link to download: <a href="http://drupal.org/project/edge_suite" target="_blank">Edge Suite on drupal.org</a>
+
+
+<hr />
+<!-- ================================================================================================================= -->
+
+
+<a name="Wordpress"></a>
+<h2>Wordpress Module: Edge Suite</h2>
+coming soon...<br/>
+Link to download: <a href="http://wordpress.org/extend/plugins/edge-suite/" target="_blank">Edge Suite on wordpress.org</a><br />
+FYI: The drupal module is way more mature so far. But we are working on Wordpress pretty hard.
+
+</body>
+</html>
