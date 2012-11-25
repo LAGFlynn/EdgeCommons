@@ -73,6 +73,11 @@
 
 <strong>History:</strong><br/><br/>    
     
+0.7.1
+<ul>
+    <li>compatibility mode for adaptive layouts</li>
+</ul>   
+    
 0.7.0
 <ul>
     <li>several bugfixes for IE</li>
@@ -89,14 +94,14 @@
 <h3>Short and painless version</h3>
 Simply put this line in compositionReady of your Edge Animate composition:<br/>
 <pre>
-yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.0.min.js"});
+yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.1.min.js"});
 </pre>
 
 <h3>Advanced version</h3>
 If you have to wait until EdgeCommons is setup you can use a callback like this:
 <pre>
 yepnope({
-	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.0.min.js",
+	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.1.min.js",
 	callback: function() {
 		// Your code (e.g. start playing the composition)
 	}
@@ -341,7 +346,7 @@ an array of sizes. The second argument is a reference to the stage symbol (simpl
 The sizes will automatically be mapped to the corresponding symbols with the prefix "layout" (e.g. layout600 or layout1200) in the library.
 <pre>
 yepnope({
-	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.0.min.js",
+	load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.1.min.js",
 	callback: function() {
 		EC.setAdaptiveLayouts( [400, 600, 1200], sym, "adaptiveContainer" );
 	}
@@ -354,7 +359,8 @@ yepnope({
 
 <a name="Drupal"></a>
 <h2>Drupal Module: Edge Suite</h2>
-
+    
+Tutorial: <a href="http://edgedocks.com/content/edge-suite-edge-animate-and-drupal" target="_blank">Edge Suite for Drupal on edgedocks.com</a><br/><br/>
 Link to official website: <a href="http://drupal.org/project/edge_suite" target="_blank">Edge Suite on drupal.org</a>
 
 
@@ -365,6 +371,7 @@ Link to official website: <a href="http://drupal.org/project/edge_suite" target=
 <a name="Wordpress"></a>
 <h2>Wordpress Module: Edge Suite</h2>
 
+Tutorial: <a href="http://edgedocks.com/content/edge-suite-integrate-edge-animate-wordpress" target="_blank">Edge Suite for Wordpress on edgedocks.com</a><br/><br/>
 Link to official website: <a href="http://wordpress.org/extend/plugins/edge-suite/" target="_blank">Edge Suite on wordpress.org</a><br />
 
 </body>
