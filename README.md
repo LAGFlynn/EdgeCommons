@@ -5,8 +5,8 @@
 
 ***
 
-Current realease: 0.7.0
-Several IE bugfixes
+Current realease: 0.7.1
+(more info in changelog in documentation)
 
 ***
 
