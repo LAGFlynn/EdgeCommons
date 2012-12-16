@@ -107,7 +107,7 @@
      */
     EC.setAdaptiveLayouts = function(adaptiveLayouts, sym, adaptiveContainer) {
         if (!adaptiveLayouts || !adaptiveLayouts.length) {
-            Log.error( "Error in setAdaptiveLayouts(). Argument 'layouts' is not optional and has to be an array." );
+            Log.error( "Error in setAdaptiveLayouts(). Argument 'layouts' is not optional and has to be an array.", LOG_GROUP );
             return;
         }
         _adaptiveLayouts = adaptiveLayouts;
@@ -167,6 +167,67 @@
             console.error(error);
         }
     };
+    
+    /**
+     * Center Stage
+     * TODO: additional param for horizontal/vertical
+     */
+    EC.centerStage = function(sym) {
+        if (!sym) {
+            Log.error( "Error in centerStage(). Argument 'sym' is not optional.", LOG_GROUP );
+            return;
+        }
+        sym.getComposition().getStage().getSymbolElement().css("margin", "0px auto");
+    }
+        
+    /**
+     * Composition Loader
+     * EXAMPLE:
+     * var targetContainer = sym.getSymbol("targetContainer");
+     * EC.loadComposition("sub2.html", targetContainer)
+	 *   .done( function(comp) {
+     *      comp.getStage().$("mytext").html("hello number 2");
+     *      comp.getStage().$('targetContainer').append("<hr/>HUHU  222<hr/>");
+	 *   });
+     */
+    EC.loadComposition = function(src, sym) {
+        // Check arguments 
+        if (!src || !sym) {
+            Log.error( "Error in loadComposition(). Arguments 'src' and 'sym' are not optional.", LOG_GROUP );
+            return;
+        }
+        try {
+            // Inject IFrame
+            var el = sym.getSymbolElement();
+            var uniqueId = "ec_"+Math.random().toString(36).substring(7);
+            el.html('<iframe id="'+uniqueId+'" src="'+src+'" style="overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none;"></iframe>');
+            // Create promise
+            var promise = new jQuery.Deferred();
+            
+            // Wait for IFrame to be loaded
+            var iframe = jQuery("#"+uniqueId);
+            //EC.debug("iframe", LOG_GROUP, iframe);
+            var innerWindow = iframe[0].contentWindow;
+            //EC.debug("innerWindow", LOG_GROUP, innerWindow);
+            iframe.load( function() {
+                //EC.debug("iframe load done");
+                // Wait for inner composition to be bootstrapped
+                innerWindow.AdobeEdge.bootstrapCallback(function (compId) {
+                    //EC.debug("Inner composition was bootstrapped: ", LOG_GROUP, compId);
+                    // alpha: ignore compId (just one inner comp supported so far)
+                    var innerComp = innerWindow.AdobeEdge.getComposition(compId);
+                    //EC.debug("innerComp", LOG_GROUP, innerComp);
+                    //innerComp.getStage().$('targetContainer').html("<hr/>TEST<hr/>");
+                    promise.resolve(innerComp, innerWindow.AdobeEdge);
+                });
+            });
+        } 
+        catch (err) {
+            EC.error("Error in loadComposition: ", LOG_GROUP, err.toString());
+        }
+        return promise;
+    }  
+    
     //------------------------------------
     // Init
     //------------------------------------

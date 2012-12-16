@@ -115,10 +115,9 @@
 (function(window) {
   var EdgeCommons = function() {
   };
-  EdgeCommons.VERSION = "0.0.7";
+  EdgeCommons.VERSION = "0.7.1";
   var LOG_GROUP = "EdgeCommons";
-  window.EC = window.EdgeCommons = EdgeCommons;
-  Log.debug("v" + EdgeCommons.VERSION, LOG_GROUP)
+  window.EC = window.EdgeCommons = EdgeCommons
 })(window);
 (function(EC) {
   var C = function() {
@@ -161,9 +160,13 @@
   };
   EC.setAdaptiveLayouts = function(adaptiveLayouts, sym, adaptiveContainer) {
     if(!adaptiveLayouts || !adaptiveLayouts.length) {
-      Log.error("Error in setAdaptiveLayouts(). Argument 'layouts' is not optional and has to be an array.")
+      Log.error("Error in setAdaptiveLayouts(). Argument 'layouts' is not optional and has to be an array.", LOG_GROUP);
+      return
     }
     _adaptiveLayouts = adaptiveLayouts;
+    if(!sym) {
+      return
+    }
     $(window).resize(function(e) {
       EC.applyAdaptiveLayout(sym, adaptiveContainer)
     });
@@ -195,6 +198,36 @@
     }catch(error) {
       console.error(error)
     }
+  };
+  EC.centerStage = function(sym) {
+    if(!sym) {
+      Log.error("Error in centerStage(). Argument 'sym' is not optional.", LOG_GROUP);
+      return
+    }
+    sym.getComposition().getStage().getSymbolElement().css("margin", "0px auto")
+  };
+  EC.loadComposition = function(src, sym) {
+    if(!src || !sym) {
+      Log.error("Error in loadComposition(). Arguments 'src' and 'sym' are not optional.", LOG_GROUP);
+      return
+    }
+    try {
+      var el = sym.getSymbolElement();
+      var uniqueId = "ec_" + Math.random().toString(36).substring(7);
+      el.html('<iframe id="' + uniqueId + '" src="' + src + '" style="overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none;"></iframe>');
+      var promise = new jQuery.Deferred;
+      var iframe = jQuery("#" + uniqueId);
+      var innerWindow = iframe[0].contentWindow;
+      iframe.load(function() {
+        innerWindow.AdobeEdge.bootstrapCallback(function(compId) {
+          var innerComp = innerWindow.AdobeEdge.getComposition(compId);
+          promise.resolve(innerComp, innerWindow.AdobeEdge)
+        })
+      })
+    }catch(err) {
+      EC.error("Error in loadComposition: ", LOG_GROUP, err.toString())
+    }
+    return promise
   };
   EC.Core = C;
   EC.Log = Log;
@@ -288,5 +321,120 @@
     var instance = SoundJS.stop(soundId)
   };
   EC.Sound = C
+})(EdgeCommons);
+(function(EC) {
+  var C = function() {
+  };
+  C.VERSION = "0.0.1";
+  C.compositions = {};
+  var Log = ModulogLog;
+  var LOG_GROUP = "EdgeCommons | Parallax";
+  C.addComposition = function(compId) {
+    this.compositions[compId] = {};
+    var stage = AdobeEdge.getComposition(compId).getStage();
+    this.compositions[compId].stage = stage;
+    var stageElement = AdobeEdge.getComposition(compId).getStage().getSymbolElement();
+    this.compositions[compId].stageElement = stageElement;
+    var stageHeight = stageElement.height();
+    this.compositions[compId].stageHeight = stageHeight;
+    var stageTop = stageElement.position().top;
+    this.compositions[compId].stageTop = stageTop;
+    this.compositions[compId].stageMiddle = Math.floor(stageTop + stageHeight / 2);
+    this.compositions[compId].duration = stage.getDuration();
+    stage.stop(0)
+  };
+  C.setup = function(sym) {
+    if(!sym) {
+      Log.error("Error in setup(). Argument 'sym' is not optional.", LOG_GROUP);
+      return
+    }
+    this.addComposition(sym.getComposition().compId);
+    $(document).scroll(function() {
+      var scrollTop = $(document).scrollTop();
+      $.each(EC.Parallax.compositions, function(compId, c) {
+        var percentage = scrollTop / (c.stageHeight - $(window).height());
+        var playheadPos = Math.floor(percentage * c.duration);
+        c.stage.stop(playheadPos)
+      })
+    })
+  };
+  EC.Parallax = C
+})(EdgeCommons);
+(function(EC) {
+  var C = function() {
+  };
+  C.VERSION = "0.0.1";
+  C.compositions = {};
+  var Log = ModulogLog;
+  var LOG_GROUP = "EdgeCommons | Spotlight";
+  C.open = function(config) {
+    if(config.type != "youtube") {
+      Log.error("Error in open(). Spotlight only supports type 'youtube' in this version", LOG_GROUP);
+      return
+    }
+    config.width = config.width || 400;
+    config.height = config.height || 600;
+    config.borderWidth = config.borderWidth || 5;
+    config.borderColor = config.borderColor || "#FFF";
+    var tpl = '<div id="spotlight"> <div class="background"> </div> </div>';
+    $("body").append(tpl);
+    var tpl = '<div class="base"></div>';
+    $("#spotlight .background").append(tpl);
+    var tpl = '<div class="close-button"></div>';
+    $("#spotlight .background").append(tpl);
+    var closeButton = $("#spotlight .close-button");
+    closeButton.css("margin-left", 0.5 * config.width - 15 + config.borderWidth).css("margin-top", -0.5 * config.height - 15);
+    var base = $("#spotlight .base");
+    base.css("width", 0).css("height", 0).css("margin-left", 0).css("margin-top", 0).css("border-width", config.borderWidth).css("border-color", config.borderColor).css("border-radius", 5);
+    base.animate({width:config.width, "margin-left":-0.5 * config.width, height:config.height, "margin-top":-0.5 * config.height}, 400, "easeOutBack", function() {
+      $("#spotlight .content").css("display", "inline");
+      $("#spotlight .fader").fadeOut(2E3);
+      $("#spotlight .close-button").fadeIn()
+    });
+    base.append('<div class="content"></div>');
+    var content = $("#spotlight .content");
+    content.append('<iframe width="' + config.width + '" height="' + config.height + '" ' + 'src="http://www.youtube.com/embed/' + config.param.media + "?autoplay=" + (config.param && config.param.autoplay ? "1" : "0") + '" ' + 'frameborder="0" allowfullscreen></iframe>');
+    content.append('<div class="fader"></div>');
+    var fader = $("#spotlight .fader");
+    $("#spotlight .background").click(function() {
+      EC.Spotlight.close(config)
+    })
+  };
+  C.close = function() {
+    $("#spotlight .content").remove();
+    $("#spotlight .close-button").remove();
+    $("#spotlight .background").fadeOut(400);
+    var base = $("#spotlight .base");
+    base.animate({width:0, "margin-left":0, height:0, "margin-top":0, opacity:0}, 400, "easeOutCubic", function() {
+      $("#spotlight").remove()
+    })
+  };
+  EC.Spotlight = C
+})(EdgeCommons);
+(function(EC) {
+  var C = function() {
+  };
+  C.VERSION = "0.0.1a";
+  C.compositions = {};
+  var Log = ModulogLog;
+  var LOG_GROUP = "EdgeCommons | Experimental";
+  C.SpeedControl = {};
+  C.SpeedControl.setSpeed = function(factor, sym, recursive) {
+    $.each(sym.timelines["Default Timeline"].timeline, function(key, item) {
+      if(typeof item.ec == "undefined") {
+        item.ec = {}
+      }
+      if(typeof item.ec.oldPosition == "undefined") {
+        item.ec.originalPosition = item.position;
+        item.ec.originalDuration = item.duration
+      }
+      item.position = 1 / factor * item.ec.originalPosition;
+      item.duration = 1 / factor * item.ec.originalDuration;
+      sym._flushCache();
+      EC.debug("setSpeed: factor:", LOG_GROUP, 1 / factor)
+    })
+  };
+  EC.Experimental = C;
+  Log.debug("v" + C.VERSION, LOG_GROUP)
 })(EdgeCommons);
 

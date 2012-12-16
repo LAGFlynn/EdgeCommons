@@ -66,6 +66,6 @@
     // Init
     //------------------------------------
     window.EC = window.EdgeCommons = EdgeCommons;
-    Log.debug("v" + EdgeCommons.VERSION, LOG_GROUP);
+    //Log.debug("v" + EdgeCommons.VERSION, LOG_GROUP);
 
 })(window);
