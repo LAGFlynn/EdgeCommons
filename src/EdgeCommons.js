@@ -47,6 +47,7 @@
     //------------------------------------
     var EdgeCommons = function () {
         // Multiton
+        console.log("Multiton");
     };
 
     //------------------------------------
