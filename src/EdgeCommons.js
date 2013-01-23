@@ -51,7 +51,7 @@
     //------------------------------------
     // Public
     //------------------------------------
-    EdgeCommons.VERSION = "0.7.1";
+    EdgeCommons.VERSION = "0.8.0";
 
     //------------------------------------
     // Private
@@ -66,6 +66,6 @@
     // Init
     //------------------------------------
     window.EC = window.EdgeCommons = EdgeCommons;
-    //Log.debug("v" + EdgeCommons.VERSION, LOG_GROUP);
+    //Log.debug("v" + VERSION, LOG_GROUP);
 
 })(window);

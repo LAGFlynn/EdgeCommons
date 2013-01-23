@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+./compile.sh
+
 echo "watching...";
 
 check() {

@@ -1,7 +1,7 @@
 /**
  * EdgeCommons
  * Dirty little Helpers for Adobe Edge Animate
- * by Simon Widjaja
+ * by Simon Widjaja and friends
  *
  * Copyright (c) 2012 Simon Widjaja
  *
@@ -54,6 +54,7 @@
     //------------------------------------
     /**
      * Load external JavaScript and add it to the body of the document's head
+     * Depricated (but still used in Preload and Sound)
      */
     EC.loadScript = function (url, callback) {
         Log.debug("loadScript: " + url, LOG_GROUP);

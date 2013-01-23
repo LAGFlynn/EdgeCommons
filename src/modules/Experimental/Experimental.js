@@ -30,75 +30,39 @@
     //------------------------------------
     // Constructor
     //------------------------------------
-    var C = function () {
-    };
+    var C = EC;
 
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.0.1a";
-    C.compositions = {};
     
     //------------------------------------
     // Private
     //------------------------------------
     // Logger
-    var Log = ModulogLog;
     var LOG_GROUP = "EdgeCommons | Experimental";
 
     //------------------------------------
     // Methods
     //------------------------------------
-    /**
-     * Composition Loader
-     * TEMP EXAMPLE:
-     * var targetContainer = sym.getSymbol("targetContainer");
-     * EC.Experimental.loadComposition("sub2.html", targetContainer)
-	 *   .done( function(comp) {
-     *      comp.getStage().$("mytext").html("hello number 2");
-     *      comp.getStage().$('targetContainer').append("<hr/>HUHU  222<hr/>");
-	 *   });
-     */
-    /*
-    C.loadComposition = function(src, sym) {
-        // Check arguments 
-        if (!src || !sym) {
-            Log.error( "Error in loadComposition(). Arguments 'src' and 'sym' are not optional.", LOG_GROUP );
-            return;
-        }
-        try {
-            // Inject IFrame
-            var el = sym.getSymbolElement();
-            var uniqueId = "ec_"+Math.random().toString(36).substring(7);
-            el.html('<iframe id="'+uniqueId+'" src="'+src+'" style="overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none;"></iframe>');
-            // Create promise
-            var promise = new jQuery.Deferred();
-            
-            // Wait for IFrame to be loaded
-            var iframe = jQuery("#"+uniqueId);
-            //EC.debug("iframe", LOG_GROUP, iframe);
-            var innerWindow = iframe[0].contentWindow;
-            //EC.debug("innerWindow", LOG_GROUP, innerWindow);
-            iframe.load( function() {
-                //EC.debug("iframe load done");
-                // Wait for inner composition to be bootstrapped
-                innerWindow.AdobeEdge.bootstrapCallback(function (compId) {
-                    //EC.debug("Inner composition was bootstrapped: ", LOG_GROUP, compId);
-                    // alpha: ignore compId (just one inner comp supported so far)
-                    var innerComp = innerWindow.AdobeEdge.getComposition(compId);
-                    //EC.debug("innerComp", LOG_GROUP, innerComp);
-                    //innerComp.getStage().$('targetContainer').html("<hr/>TEST<hr/>");
-                    promise.resolve(innerComp, innerWindow.AdobeEdge);
-                });
-            });
-        } 
-        catch (err) {
-            EC.error("Error in loadComposition: ", LOG_GROUP, err.toString());
-        }
-        return promise;
-    }
-    */
+   
 
+    //-------------------------------------------    
+    // Core: getSymbolName    
+    // if name should be used in sym.getSymbol(NAME) the preceding "#" is necessary
+    //-------------------------------------------   
+    C.getSymbolName = function(sym) {
+        // Old version (doesn't always work)
+        //return sym.element.selector.replace("#"+sym.getParentSymbol().element[0].id+"_", "");
+        var name = sym.getVariable("symbolSelector"); // still with #
+        var paraentSymbol = sym.getParentSymbol();
+        if (paraentSymbol) {
+            name = name.replace(paraentSymbol.getVariable("symbolSelector")+"_", "");
+        }
+        name = name.replace("#", "");
+        return name;
+    };
+    
     //-------------------------------------------    
     // Speed Control    
     //-------------------------------------------    
@@ -129,13 +93,12 @@
             EC.debug("setSpeed: factor:", LOG_GROUP, 1/factor);    
         });
         //sym._flushCache();
-    }    
+    };    
         
         
     //------------------------------------
     // Init
     //------------------------------------
-    EC.Experimental = C;
-    Log.debug("v" + C.VERSION, LOG_GROUP);
+    //Log.debug("", LOG_GROUP);
 
 })(EdgeCommons);
