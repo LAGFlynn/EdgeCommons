@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>..&#x2F;src&#x2F;modules&#x2F;Core&#x2F;Core.js - EdgeCommons</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="..&#x2F;index.html"><img src="..&#x2F;assets/css/logo.png">EdgeCommons: ..&#x2F;src&#x2F;modules&#x2F;Core&#x2F;Core.js</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.8</em>
+        </div>
+    </div>
+    <div class="yui3-g">
+
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="..&#x2F;modules/Core.html">Core</a>
+                
+                </li>
+            
+                <li><a href="..&#x2F;modules/EdgeCommons.html">EdgeCommons</a>
+                
+                    <ul>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Experimental">Experimental</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Parallax">Parallax</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Preload">Preload</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Sound">Sound</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Spotlight">Spotlight</a></li>
+                        
+                    </ul>
+                
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+<div id="classes" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Classes</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="..&#x2F;classes/Parallax.html">Parallax</a></li>
+            
+                <li><a href="..&#x2F;classes/Spotlight.html">Spotlight</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="fileTree" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Files</h2>
+    </div>
+    <div class="bd">
+        <ul><li>../<ul><li>src/<ul><li><a href="../files/.._src_EdgeCommons.js.html">EdgeCommons.js</a></li><li>libs/<ul><li><a href="../files/.._src_libs_Modulog-0.0.1.js.html">Modulog-0.0.1.js</a></li><li><a href="../files/.._src_libs_Modulog-0.0.2.js.html">Modulog-0.0.2.js</a></li></ul></li><li>modules/<ul><li>Core/<ul><li><a href="../files/.._src_modules_Core_Core.js.html">Core.js</a></li></ul></li><li>Experimental/<ul><li><a href="../files/.._src_modules_Experimental_Experimental.js.html">Experimental.js</a></li></ul></li><li>Parallax/<ul><li><a href="../files/.._src_modules_Parallax_Parallax.js.html">Parallax.js</a></li></ul></li><li>Preload/<ul><li><a href="../files/.._src_modules_Preload_Preload.js.html">Preload.js</a></li></ul></li><li>Sound/<ul><li><a href="../files/.._src_modules_Sound_Sound.js.html">Sound.js</a></li></ul></li><li>Spotlight/<ul><li><a href="../files/.._src_modules_Spotlight_Spotlight.js.html">Spotlight.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+    </div>
+</div>
+
+
+
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>..&#x2F;src&#x2F;modules&#x2F;Core&#x2F;Core.js</h4>
+
+<pre class="code prettyprint linenums">
+&#x2F;**
+ * EdgeCommons
+ * Dirty little Helpers for Adobe Edge Animate
+ * by Simon Widjaja and friends
+ *
+ * Copyright (c) 2012 Simon Widjaja
+ *
+ * --------------------------------------------------------------------------------------------------------------------------------------------------
+ * Released under MIT license
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;),
+ * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and&#x2F;or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ * --------------------------------------------------------------------------------------------------------------------------------------------------
+ * Additional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.
+ * --------------------------------------------------------------------------------------------------------------------------------------------------
+ *&#x2F;
+
+
+
+&#x2F;*
+ * Module: Core
+ *&#x2F;
+
+
+&#x2F;**
+The core module of EdgeCommons 
+Version 0.0.6
+@module Core
+**&#x2F;
+(function (EC) {
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Constructor
+    &#x2F;&#x2F;------------------------------------
+    var C = function () {
+    };
+
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Public
+    &#x2F;&#x2F;------------------------------------
+    C.VERSION = &quot;0.0.6&quot;;
+
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Private
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Logger
+    var Log = ModulogLog;
+    var LOG_GROUP = &quot;EdgeCommons | Core&quot;;
+    &#x2F;&#x2F; Adaptive Layouts
+    var _adaptiveLayouts = null;
+    var _currentAdaptiveLayout = null;
+
+
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Methods
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;**
+     * Load external JavaScript and add it to the body of the document&#x27;s head
+     * Depricated (but still used in Preload and Sound)
+     *&#x2F;
+    EC.loadScript = function (url, callback) {
+        Log.debug(&quot;loadScript: &quot; + url, LOG_GROUP);
+        try {
+            &#x2F;&#x2F; Use yepnope to load script and optionally call callback
+            yepnope({
+                load: url,
+                callback: function (pUrl, pTestResult, pKey) {
+                    if (pUrl == url) {
+                        Log.debug(&quot;Loading external script was successful: &quot; + url, LOG_GROUP);
+                        if (typeof callback === &quot;function&quot;) {
+                            callback();
+                        }
+                    }
+                }
+            });
+        } catch (error) {
+            Log.error(&quot;Loading external script failed: &quot; + url, LOG_GROUP);
+        }
+    };
+    &#x2F;**
+     * Data Injection
+     * @param sym Reference to a Edge Symbol (does not matter which one)
+     * @param scriptClassSelector Class of the container script-Tag (default: data)
+     *&#x2F;
+    EC.getInjectedData = function (sym, scriptClassSelector) {
+        try {
+            &#x2F;&#x2F; Default scriptClass
+            scriptClassSelector = scriptClassSelector || &quot;data&quot;;
+            &#x2F;&#x2F; Argument sym is not optional
+            if (!sym || !sym.getParentSymbol) {
+                Log.error(&quot;getInjectedData(): First argument &#x27;sys&#x27; is not optional&quot;, LOG_GROUP);
+            }
+            &#x2F;&#x2F; Alternative
+            &#x2F;&#x2F; var stageElement = sym.getSymbolElement().closest(&quot;.&quot;+sym.getComposition().compId);
+            &#x2F;&#x2F; Workaround: Get Stage (using getComposition() always results in the first instance of identical instances)
+            while (sym.getParentSymbol()) {
+                sym = sym.getParentSymbol();
+            }
+            &#x2F;&#x2F; Extract injected data
+            var injectedDataRaw = sym.getSymbolElement().find(&quot;.&quot; + scriptClassSelector).html();
+            var injectedData = $.parseJSON(injectedDataRaw);
+            return injectedData;
+        } catch (error) {
+            Log.error(&quot;Reading injected data failed (scriptClassSelector=&quot; + scriptClassSelector + &quot;)&quot;, LOG_GROUP, error);
+        }
+    };
+
+    &#x2F;**
+     * Adaptive
+     *&#x2F;
+    EC.setAdaptiveLayouts = function(adaptiveLayouts, sym, adaptiveContainer) {
+        if (!adaptiveLayouts || !adaptiveLayouts.length) {
+            Log.error( &quot;Error in setAdaptiveLayouts(). Argument &#x27;layouts&#x27; is not optional and has to be an array.&quot;, LOG_GROUP );
+            return;
+        }
+        _adaptiveLayouts = adaptiveLayouts;
+        
+        &#x2F;&#x2F; backwards compatibilty
+        &#x2F;&#x2F; (adaptive layouts array will be stored, but resize handler will not be added 
+        &#x2F;&#x2F; automatically since in older versions (e.g. 0.4.0 @ Adobe TV) applyAdaptiveLayout() will be called manually
+        if (!sym) {
+            return;
+        }
+        
+        &#x2F;&#x2F; Register event handler for resize, so the right adaptive layout gets displayed
+        &#x2F;&#x2F; whenever the windows is being resized
+        $( window ).resize( function(e) {
+            EC.applyAdaptiveLayout( sym, adaptiveContainer );
+        });
+        &#x2F;&#x2F; Execute initially
+        EC.applyAdaptiveLayout( sym, adaptiveContainer );
+    };    
+    EC.applyAdaptiveLayout = function (sym, adaptiveContainer) {
+        try {
+            sym.setVariable(&quot;doResizing&quot;, function(){
+                var stage = sym.getComposition().getStage();
+                var width = stage.getSymbolElement().width();
+
+                &#x2F;&#x2F; responsive container
+                var container = sym.$( adaptiveContainer );
+
+                var buffer = 20;
+                var calcLayout = null;
+                $.each( _adaptiveLayouts, function(index, layout) {
+                    if(width &gt;= layout - buffer){
+                        calcLayout = layout;
+                    }
+                });
+
+                &#x2F;&#x2F;console.log(&quot;calcLayout: &quot;+calcLayout);
+
+                if (_currentAdaptiveLayout != calcLayout ) {
+                    Log.debug( &quot;Switching to: layout&quot;+calcLayout, LOG_GROUP );
+                    _currentAdaptiveLayout = calcLayout;
+                    container.html(&quot;&quot;);
+                    sym.createChildSymbol(&quot;layout&quot;+calcLayout, adaptiveContainer);
+                }
+                &#x2F;&#x2F; Display mode (debug only)
+                sym.$(&quot;currentLayout&quot;).html(sym.getVariable(&quot;layout&quot;));
+                &#x2F;&#x2F;sym.stop(mode);
+
+            });
+
+            &#x2F;&#x2F; Execute on startup
+            var doResizing = sym.getVariable(&quot;doResizing&quot;);
+            doResizing();
+
+        }
+        catch(error) {
+            console.error(error);
+        }
+    };
+    
+    &#x2F;**
+     * Center Stage
+     * TODO: additional param for horizontal&#x2F;vertical
+     *&#x2F;
+    EC.centerStage = function(sym) {
+        if (!sym) {
+            Log.error( &quot;Error in centerStage(). Argument &#x27;sym&#x27; is not optional.&quot;, LOG_GROUP );
+            return;
+        }
+        sym.getComposition().getStage().getSymbolElement().css(&quot;margin&quot;, &quot;0px auto&quot;);
+    }
+        
+    &#x2F;**
+     * Composition Loader
+     * EXAMPLE:
+     * var targetContainer = sym.getSymbol(&quot;targetContainer&quot;);
+     * EC.loadComposition(&quot;sub2.html&quot;, targetContainer)
+	 *   .done( function(comp) {
+     *      comp.getStage().$(&quot;mytext&quot;).html(&quot;hello number 2&quot;);
+     *      comp.getStage().$(&#x27;targetContainer&#x27;).append(&quot;&lt;hr&#x2F;&gt;HUHU  222&lt;hr&#x2F;&gt;&quot;);
+	 *   });
+     *&#x2F;
+    EC.loadComposition = function(src, sym) {
+        &#x2F;&#x2F; Check arguments 
+        if (!src || !sym) {
+            Log.error( &quot;Error in loadComposition(). Arguments &#x27;src&#x27; and &#x27;sym&#x27; are not optional.&quot;, LOG_GROUP );
+            return;
+        }
+        try {
+            &#x2F;&#x2F; Inject IFrame
+            var el = sym.getSymbolElement();
+            var uniqueId = &quot;ec_&quot;+Math.random().toString(36).substring(7);
+            el.html(&#x27;&lt;iframe id=&quot;&#x27;+uniqueId+&#x27;&quot; src=&quot;&#x27;+src+&#x27;&quot; style=&quot;overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none;&quot;&gt;&lt;&#x2F;iframe&gt;&#x27;);
+            &#x2F;&#x2F; Create promise
+            var promise = new jQuery.Deferred();
+            
+            &#x2F;&#x2F; Wait for IFrame to be loaded
+            var iframe = jQuery(&quot;#&quot;+uniqueId);
+            &#x2F;&#x2F;EC.debug(&quot;iframe&quot;, LOG_GROUP, iframe);
+            var innerWindow = iframe[0].contentWindow;
+            &#x2F;&#x2F;EC.debug(&quot;innerWindow&quot;, LOG_GROUP, innerWindow);
+            iframe.load( function() {
+                &#x2F;&#x2F;EC.debug(&quot;iframe load done&quot;);
+                &#x2F;&#x2F; Wait for inner composition to be bootstrapped
+                innerWindow.AdobeEdge.bootstrapCallback(function (compId) {
+                    &#x2F;&#x2F;EC.debug(&quot;Inner composition was bootstrapped: &quot;, LOG_GROUP, compId);
+                    &#x2F;&#x2F; alpha: ignore compId (just one inner comp supported so far)
+                    var innerComp = innerWindow.AdobeEdge.getComposition(compId);
+                    &#x2F;&#x2F;EC.debug(&quot;innerComp&quot;, LOG_GROUP, innerComp);
+                    &#x2F;&#x2F;innerComp.getStage().$(&#x27;targetContainer&#x27;).html(&quot;&lt;hr&#x2F;&gt;TEST&lt;hr&#x2F;&gt;&quot;);
+                    promise.resolve(innerComp, innerWindow.AdobeEdge);
+                });
+            });
+        } 
+        catch (err) {
+            EC.error(&quot;Error in loadComposition: &quot;, LOG_GROUP, err.toString());
+        }
+        return promise;
+    }  
+    
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Init
+    &#x2F;&#x2F;------------------------------------
+    EC.Core = C;
+
+    &#x2F;&#x2F; Expose Logging
+    EC.Log = Log;
+    EC.debug = Log.debug;
+    EC.info = Log.info;
+    EC.warn = Log.warn;
+    EC.error = Log.error;
+
+    &#x2F;&#x2F; Expose Configuration
+    EC.Config = MConfig;
+
+    &#x2F;&#x2F;Log.debug(&quot;v&quot; + C.VERSION, LOG_GROUP);
+
+
+})(EdgeCommons);
+</pre>
+
+</div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/js/tabs.js"></script>
+</body>
+</html>

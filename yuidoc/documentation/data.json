@@ -1,0 +1,592 @@
+{
+    "project": {
+        "name": "EdgeCommons",
+        "description": "Dirty Little Helpers for Adobe Edge",
+        "version": "0.0.8",
+        "url": "http://www.edgecommons.org/"
+    },
+    "files": {
+        "../src/libs/Modulog-0.0.1.js": {
+            "name": "../src/libs/Modulog-0.0.1.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "../src/libs/Modulog-0.0.2.js": {
+            "name": "../src/libs/Modulog-0.0.2.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "../src/modules/Core/Core.js": {
+            "name": "../src/modules/Core/Core.js",
+            "modules": {
+                "Core": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "../src/modules/Experimental/Experimental.js": {
+            "name": "../src/modules/Experimental/Experimental.js",
+            "modules": {
+                "EdgeCommons": 1,
+                "Experimental": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "../src/modules/Parallax/Parallax.js": {
+            "name": "../src/modules/Parallax/Parallax.js",
+            "modules": {
+                "Parallax": 1
+            },
+            "classes": {
+                "Parallax": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "../src/modules/Preload/Preload.js": {
+            "name": "../src/modules/Preload/Preload.js",
+            "modules": {
+                "Preload": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "../src/modules/Sound/Sound.js": {
+            "name": "../src/modules/Sound/Sound.js",
+            "modules": {
+                "Sound": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "../src/modules/Spotlight/Spotlight.js": {
+            "name": "../src/modules/Spotlight/Spotlight.js",
+            "modules": {
+                "Spotlight": 1
+            },
+            "classes": {
+                "Spotlight": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "../src/EdgeCommons.js": {
+            "name": "../src/EdgeCommons.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Core": {
+            "name": "Core",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "../src/modules/Core/Core.js",
+            "line": 33,
+            "description": "The core module of EdgeCommons \nVersion 0.0.6"
+        },
+        "EdgeCommons": {
+            "name": "EdgeCommons",
+            "submodules": {
+                "Experimental": 1,
+                "Parallax": 1,
+                "Preload": 1,
+                "Sound": 1,
+                "Spotlight": 1
+            },
+            "classes": {
+                "Parallax": 1,
+                "Spotlight": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "file": "../src/modules/Spotlight/Spotlight.js",
+            "line": 32,
+            "description": "TODO: DESCRIPTION FOR EXPERIMENTAL",
+            "tag": "main",
+            "itemtype": "main"
+        },
+        "Experimental": {
+            "name": "Experimental",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "EdgeCommons",
+            "namespace": "",
+            "file": "../src/modules/Experimental/Experimental.js",
+            "line": 30,
+            "description": "TODO: DESCRIPTION FOR EXPERIMENTAL",
+            "tag": "main",
+            "itemtype": "main"
+        },
+        "Parallax": {
+            "name": "Parallax",
+            "submodules": {},
+            "classes": {
+                "Parallax": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "EdgeCommons",
+            "namespace": "",
+            "file": "../src/modules/Parallax/Parallax.js",
+            "line": 30,
+            "description": "Parallax Scrolling for Edge Animate",
+            "tag": "main",
+            "itemtype": "main"
+        },
+        "Preload": {
+            "name": "Preload",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "EdgeCommons",
+            "namespace": "",
+            "file": "../src/modules/Preload/Preload.js",
+            "line": 30,
+            "description": "TODO: DESCRIPTION FOR PRELOAD",
+            "tag": "main",
+            "itemtype": "main"
+        },
+        "Sound": {
+            "name": "Sound",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "EdgeCommons",
+            "namespace": "",
+            "file": "../src/modules/Sound/Sound.js",
+            "line": 31,
+            "description": "TODO: DESCRIPTION FOR SOUND",
+            "tag": "main",
+            "itemtype": "main"
+        },
+        "Spotlight": {
+            "name": "Spotlight",
+            "submodules": {},
+            "classes": {
+                "Spotlight": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "EdgeCommons",
+            "namespace": "",
+            "file": "../src/modules/Spotlight/Spotlight.js",
+            "line": 32,
+            "description": "Spotlight: Overlay for media (e.g. YouTube) or external Edge Animate compositions",
+            "tag": "main",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "Parallax": {
+            "name": "Parallax",
+            "shortname": "Parallax",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "EdgeCommons",
+            "submodule": "Parallax",
+            "namespace": "",
+            "file": "../src/modules/Parallax/Parallax.js",
+            "line": 30,
+            "description": "Parallax Scrolling for Edge Animate",
+            "mainName": "EdgeCommons",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        },
+        "Spotlight": {
+            "name": "Spotlight",
+            "shortname": "Spotlight",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "EdgeCommons",
+            "submodule": "Spotlight",
+            "namespace": "",
+            "file": "../src/modules/Spotlight/Spotlight.js",
+            "line": 32,
+            "description": "Spotlight: Overlay for media (e.g. YouTube) or external Edge Animate compositions",
+            "mainName": "EdgeCommons",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true
+        }
+    },
+    "classitems": [
+        {
+            "file": "../src/libs/Modulog-0.0.1.js",
+            "line": 1,
+            "description": "Logger\nby Simon Widjaja\n*\n   Example:\n\n   // Set minimum Log Level\n   Log.level = Log.LEVEL_INFO;\n   // Setup additional LogTarget (optional)\n   Log.addLogTarget(function(msg){\n       alert( msg );\n   });\n   // Do some Logging\n   Log.debug(\"Logger is ready: \", \"UserController\", $scope);\n   Log.info(\"Logger is ready: \", \"UserController\", $scope);\n   Log.warn(\"Logger is ready\", \"UserController\");\n   Log.error(\"Ein Error ist aufgetreten\");\n\n   Feature Requests:\n   - Timestamp\n   - Log.performance()",
+            "class": "Parallax"
+        },
+        {
+            "file": "../src/libs/Modulog-0.0.2.js",
+            "line": 1,
+            "description": "Modulog\nby Simon Widjaja",
+            "class": "Parallax"
+        },
+        {
+            "file": "../src/libs/Modulog-0.0.2.js",
+            "line": 26,
+            "description": "ModulogLog\nby Simon Widjaja",
+            "class": "Parallax"
+        },
+        {
+            "file": "../src/libs/Modulog-0.0.2.js",
+            "line": 109,
+            "description": "ModulogConfig\nby Simon Widjaja\nUsage:\n- Condig.init(configObject);\n- Condig.init(url, callback);\n- Condig.set(\"topic.subtopic.value\", value);\n- Config.get(\"topic.subtopic.value\");",
+            "class": "Parallax"
+        },
+        {
+            "file": "../src/modules/Core/Core.js",
+            "line": 1,
+            "description": "EdgeCommons\nDirty little Helpers for Adobe Edge Animate\nby Simon Widjaja and friends\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "class": "Parallax"
+        },
+        {
+            "file": "../src/modules/Core/Core.js",
+            "line": 64,
+            "description": "Load external JavaScript and add it to the body of the document's head\nDepricated (but still used in Preload and Sound)",
+            "class": "Parallax",
+            "module": "Core"
+        },
+        {
+            "file": "../src/modules/Core/Core.js",
+            "line": 87,
+            "description": "Data Injection",
+            "params": [
+                {
+                    "name": "sym",
+                    "description": "Reference to a Edge Symbol (does not matter which one)"
+                },
+                {
+                    "name": "scriptClassSelector",
+                    "description": "Class of the container script-Tag (default: data)"
+                }
+            ],
+            "class": "Parallax",
+            "module": "Core"
+        },
+        {
+            "file": "../src/modules/Core/Core.js",
+            "line": 115,
+            "description": "Adaptive",
+            "class": "Parallax",
+            "module": "Core"
+        },
+        {
+            "file": "../src/modules/Core/Core.js",
+            "line": 181,
+            "description": "Center Stage\nTODO: additional param for horizontal/vertical",
+            "class": "Parallax",
+            "module": "Core"
+        },
+        {
+            "file": "../src/modules/Core/Core.js",
+            "line": 193,
+            "description": "Composition Loader\nEXAMPLE:\nvar targetContainer = sym.getSymbol(\"targetContainer\");\nEC.loadComposition(\"sub2.html\", targetContainer)\n  .done( function(comp) {\n     comp.getStage().$(\"mytext\").html(\"hello number 2\");\n     comp.getStage().$('targetContainer').append(\"<hr/>HUHU  222<hr/>\");\n  });",
+            "class": "Parallax",
+            "module": "Core"
+        },
+        {
+            "file": "../src/modules/Experimental/Experimental.js",
+            "line": 1,
+            "description": "EdgeCommons\nDirty little Helpers for Adobe Edge\nby Simon Widjaja\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "class": "Parallax",
+            "module": "Core"
+        },
+        {
+            "file": "../src/modules/Experimental/Experimental.js",
+            "line": 26,
+            "description": "Module: Experimental",
+            "class": "Parallax",
+            "module": "Core"
+        },
+        {
+            "file": "../src/modules/Experimental/Experimental.js",
+            "line": 78,
+            "description": "TODO: recursive",
+            "class": "Parallax",
+            "module": "EdgeCommons",
+            "submodule": "Experimental"
+        },
+        {
+            "file": "../src/modules/Parallax/Parallax.js",
+            "line": 1,
+            "description": "EdgeCommons\nDirty little Helpers for Adobe Edge\nby Simon Widjaja\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "class": "Parallax",
+            "module": "EdgeCommons"
+        },
+        {
+            "file": "../src/modules/Parallax/Parallax.js",
+            "line": 26,
+            "description": "Module: Parallax",
+            "class": "Parallax",
+            "module": "EdgeCommons"
+        },
+        {
+            "file": "../src/modules/Parallax/Parallax.js",
+            "line": 60,
+            "description": "Add composition to parallax watcher",
+            "class": "Parallax",
+            "module": "EdgeCommons",
+            "submodule": "Parallax"
+        },
+        {
+            "file": "../src/modules/Parallax/Parallax.js",
+            "line": 81,
+            "description": "Setup Parallax Scrolling for a specific composition\n\n    // e.g. in compositionReady event\n    EC.Parallax.setup( sym );",
+            "itemtype": "method",
+            "name": "setup",
+            "params": [
+                {
+                    "name": "sym",
+                    "description": "A Symbol within the affected composition",
+                    "type": "Symbol"
+                }
+            ],
+            "class": "Parallax",
+            "module": "EdgeCommons",
+            "submodule": "Parallax"
+        },
+        {
+            "file": "../src/modules/Preload/Preload.js",
+            "line": 1,
+            "description": "EdgeCommons\nDirty little Helpers for Adobe Edge\nby Simon Widjaja\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "class": "Spotlight",
+            "module": "EdgeCommons"
+        },
+        {
+            "file": "../src/modules/Preload/Preload.js",
+            "line": 26,
+            "description": "Module: Preload",
+            "class": "Spotlight",
+            "module": "EdgeCommons"
+        },
+        {
+            "file": "../src/modules/Preload/Preload.js",
+            "line": 61,
+            "description": "Setup Preloader and call callback.\nCallback will be called when Preloader is ready\nor directly if Preloader already exists",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": ""
+                }
+            ],
+            "class": "Spotlight",
+            "module": "EdgeCommons",
+            "submodule": "Preload"
+        },
+        {
+            "file": "../src/modules/Sound/Sound.js",
+            "line": 1,
+            "description": "EdgeCommons\nDirty little Helpers for Adobe Edge\nby Simon Widjaja\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "class": "Spotlight",
+            "module": "EdgeCommons"
+        },
+        {
+            "file": "../src/modules/Sound/Sound.js",
+            "line": 26,
+            "description": "Module: Sound\nBridge to the great framework by Grant Skinner \"CreateJS\"",
+            "class": "Spotlight",
+            "module": "EdgeCommons"
+        },
+        {
+            "file": "../src/modules/Sound/Sound.js",
+            "line": 105,
+            "description": "Play sound",
+            "params": [
+                {
+                    "name": "soundId",
+                    "description": ""
+                }
+            ],
+            "class": "Spotlight",
+            "module": "EdgeCommons",
+            "submodule": "Sound"
+        },
+        {
+            "file": "../src/modules/Sound/Sound.js",
+            "line": 124,
+            "description": "Stop sound",
+            "params": [
+                {
+                    "name": "soundId",
+                    "description": ""
+                }
+            ],
+            "class": "Spotlight",
+            "module": "EdgeCommons",
+            "submodule": "Sound"
+        },
+        {
+            "file": "../src/modules/Spotlight/Spotlight.js",
+            "line": 64,
+            "description": "Open a spotlight overlay by passing in a configuration object",
+            "itemtype": "method",
+            "name": "open",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "The configuration object",
+                    "type": "Object"
+                },
+                {
+                    "name": "documentContext",
+                    "description": "The parent context for the spotlight overlay (e.g. window.document or window.parent.document)",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "window.top.document"
+                }
+            ],
+            "return": {
+                "description": "returns <code>true</code> whenever the opening of the spotlight overlay was successfull otherwise <code>false</code>",
+                "type": "Boolean"
+            },
+            "class": "Spotlight",
+            "module": "EdgeCommons",
+            "submodule": "Spotlight"
+        },
+        {
+            "file": "../src/modules/Spotlight/Spotlight.js",
+            "line": 149,
+            "description": "Close an existing spotlight overlay  \n(This function usually gets called by the internal close button)",
+            "itemtype": "method",
+            "name": "close",
+            "params": [
+                {
+                    "name": "documentContext",
+                    "description": "The parent context for the spotlight overlay (e.g. window.document or window.parent.document)",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "window.top.document"
+                }
+            ],
+            "class": "Spotlight",
+            "module": "EdgeCommons",
+            "submodule": "Spotlight"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nLogger\nby Simon Widjaja\n*\n   Example:\n\n   // Set minimum Log Level\n   Log.level = Log.LEVEL_INFO;\n   // Setup additional LogTarget (optional)\n   Log.addLogTarget(function(msg){\n       alert( msg );\n   });\n   // Do some Logging\n   Log.debug(\"Logger is ready: \", \"UserController\", $scope);\n   Log.info(\"Logger is ready: \", \"UserController\", $scope);\n   Log.warn(\"Logger is ready\", \"UserController\");\n   Log.error(\"Ein Error ist aufgetreten\");\n\n   Feature Requests:\n   - Timestamp\n   - Log.performance()",
+            "line": " ../src/libs/Modulog-0.0.1.js:1"
+        },
+        {
+            "message": "Missing item type\nModulog\nby Simon Widjaja",
+            "line": " ../src/libs/Modulog-0.0.2.js:1"
+        },
+        {
+            "message": "Missing item type\nModulogLog\nby Simon Widjaja",
+            "line": " ../src/libs/Modulog-0.0.2.js:26"
+        },
+        {
+            "message": "Missing item type\nModulogConfig\nby Simon Widjaja\nUsage:\n- Condig.init(configObject);\n- Condig.init(url, callback);\n- Condig.set(\"topic.subtopic.value\", value);\n- Config.get(\"topic.subtopic.value\");",
+            "line": " ../src/libs/Modulog-0.0.2.js:109"
+        },
+        {
+            "message": "Missing item type\nEdgeCommons\nDirty little Helpers for Adobe Edge Animate\nby Simon Widjaja and friends\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "line": " ../src/modules/Core/Core.js:1"
+        },
+        {
+            "message": "Missing item type\nLoad external JavaScript and add it to the body of the document's head\nDepricated (but still used in Preload and Sound)",
+            "line": " ../src/modules/Core/Core.js:64"
+        },
+        {
+            "message": "Missing item type\nData Injection",
+            "line": " ../src/modules/Core/Core.js:87"
+        },
+        {
+            "message": "Missing item type\nAdaptive",
+            "line": " ../src/modules/Core/Core.js:115"
+        },
+        {
+            "message": "Missing item type\nCenter Stage\nTODO: additional param for horizontal/vertical",
+            "line": " ../src/modules/Core/Core.js:181"
+        },
+        {
+            "message": "Missing item type\nComposition Loader\nEXAMPLE:\nvar targetContainer = sym.getSymbol(\"targetContainer\");\nEC.loadComposition(\"sub2.html\", targetContainer)\n  .done( function(comp) {\n     comp.getStage().$(\"mytext\").html(\"hello number 2\");\n     comp.getStage().$('targetContainer').append(\"<hr/>HUHU  222<hr/>\");\n  });",
+            "line": " ../src/modules/Core/Core.js:193"
+        },
+        {
+            "message": "Missing item type\nEdgeCommons\nDirty little Helpers for Adobe Edge\nby Simon Widjaja\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "line": " ../src/modules/Experimental/Experimental.js:1"
+        },
+        {
+            "message": "Missing item type\nModule: Experimental",
+            "line": " ../src/modules/Experimental/Experimental.js:26"
+        },
+        {
+            "message": "Missing item type\nTODO: recursive",
+            "line": " ../src/modules/Experimental/Experimental.js:78"
+        },
+        {
+            "message": "Missing item type\nEdgeCommons\nDirty little Helpers for Adobe Edge\nby Simon Widjaja\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "line": " ../src/modules/Parallax/Parallax.js:1"
+        },
+        {
+            "message": "Missing item type\nModule: Parallax",
+            "line": " ../src/modules/Parallax/Parallax.js:26"
+        },
+        {
+            "message": "Missing item type\nAdd composition to parallax watcher",
+            "line": " ../src/modules/Parallax/Parallax.js:60"
+        },
+        {
+            "message": "Missing item type\nEdgeCommons\nDirty little Helpers for Adobe Edge\nby Simon Widjaja\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "line": " ../src/modules/Preload/Preload.js:1"
+        },
+        {
+            "message": "Missing item type\nModule: Preload",
+            "line": " ../src/modules/Preload/Preload.js:26"
+        },
+        {
+            "message": "Missing item type\nSetup Preloader and call callback.\nCallback will be called when Preloader is ready\nor directly if Preloader already exists",
+            "line": " ../src/modules/Preload/Preload.js:61"
+        },
+        {
+            "message": "Missing item type\nEdgeCommons\nDirty little Helpers for Adobe Edge\nby Simon Widjaja\n\nCopyright (c) 2012 Simon Widjaja\n\n--------------------------------------------------------------------------------------------------------------------------------------------------\nReleased under MIT license\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"),\nto deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,\nand/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nAdditional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.\n--------------------------------------------------------------------------------------------------------------------------------------------------",
+            "line": " ../src/modules/Sound/Sound.js:1"
+        },
+        {
+            "message": "Missing item type\nModule: Sound\nBridge to the great framework by Grant Skinner \"CreateJS\"",
+            "line": " ../src/modules/Sound/Sound.js:26"
+        },
+        {
+            "message": "Missing item type\nPlay sound",
+            "line": " ../src/modules/Sound/Sound.js:105"
+        },
+        {
+            "message": "Missing item type\nStop sound",
+            "line": " ../src/modules/Sound/Sound.js:124"
+        }
+    ]
+}

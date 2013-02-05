@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>..&#x2F;src&#x2F;modules&#x2F;Sound&#x2F;Sound.js - EdgeCommons</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="..&#x2F;index.html"><img src="..&#x2F;assets/css/logo.png">EdgeCommons: ..&#x2F;src&#x2F;modules&#x2F;Sound&#x2F;Sound.js</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.8</em>
+        </div>
+    </div>
+    <div class="yui3-g">
+
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="..&#x2F;modules/Core.html">Core</a>
+                
+                </li>
+            
+                <li><a href="..&#x2F;modules/EdgeCommons.html">EdgeCommons</a>
+                
+                    <ul>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Experimental">Experimental</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Parallax">Parallax</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Preload">Preload</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Sound">Sound</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Spotlight">Spotlight</a></li>
+                        
+                    </ul>
+                
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+<div id="classes" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Classes</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="..&#x2F;classes/Parallax.html">Parallax</a></li>
+            
+                <li><a href="..&#x2F;classes/Spotlight.html">Spotlight</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="fileTree" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Files</h2>
+    </div>
+    <div class="bd">
+        <ul><li>../<ul><li>src/<ul><li><a href="../files/.._src_EdgeCommons.js.html">EdgeCommons.js</a></li><li>libs/<ul><li><a href="../files/.._src_libs_Modulog-0.0.1.js.html">Modulog-0.0.1.js</a></li><li><a href="../files/.._src_libs_Modulog-0.0.2.js.html">Modulog-0.0.2.js</a></li></ul></li><li>modules/<ul><li>Core/<ul><li><a href="../files/.._src_modules_Core_Core.js.html">Core.js</a></li></ul></li><li>Experimental/<ul><li><a href="../files/.._src_modules_Experimental_Experimental.js.html">Experimental.js</a></li></ul></li><li>Parallax/<ul><li><a href="../files/.._src_modules_Parallax_Parallax.js.html">Parallax.js</a></li></ul></li><li>Preload/<ul><li><a href="../files/.._src_modules_Preload_Preload.js.html">Preload.js</a></li></ul></li><li>Sound/<ul><li><a href="../files/.._src_modules_Sound_Sound.js.html">Sound.js</a></li></ul></li><li>Spotlight/<ul><li><a href="../files/.._src_modules_Spotlight_Spotlight.js.html">Spotlight.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+    </div>
+</div>
+
+
+
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>..&#x2F;src&#x2F;modules&#x2F;Sound&#x2F;Sound.js</h4>
+
+<pre class="code prettyprint linenums">
+&#x2F;**
+ * EdgeCommons
+ * Dirty little Helpers for Adobe Edge
+ * by Simon Widjaja
+ *
+ * Copyright (c) 2012 Simon Widjaja
+ *
+ * --------------------------------------------------------------------------------------------------------------------------------------------------
+ * Released under MIT license
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;),
+ * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and&#x2F;or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ * --------------------------------------------------------------------------------------------------------------------------------------------------
+ * Additional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.
+ * --------------------------------------------------------------------------------------------------------------------------------------------------
+ *&#x2F;
+
+&#x2F;**
+ * Module: Sound
+ * Bridge to the great framework by Grant Skinner &quot;CreateJS&quot;
+ *&#x2F;
+
+&#x2F;**
+TODO: DESCRIPTION FOR SOUND
+
+@module EdgeCommons
+@submodule Sound
+@main EdgeCommons
+**&#x2F;
+(function (EC) {
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Constructor
+    &#x2F;&#x2F;------------------------------------
+    var C = function () {
+    };
+
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Public
+    &#x2F;&#x2F;------------------------------------
+    C.VERSION = &quot;0.0.2&quot;;
+    C.soundManifest = null;
+
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Private
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Logger
+    var Log = ModulogLog;
+    var LOG_GROUP = &quot;EdgeCommons | Sound&quot;;
+    var URL_CREATEJS_SOUNDJS = &quot;http:&#x2F;&#x2F;code.createjs.com&#x2F;soundjs-0.2.0.min.js&quot;;
+
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Methods
+    &#x2F;&#x2F;------------------------------------
+    C.setup = function (manifest, callback) {
+        try {
+            &#x2F;&#x2F; Argument manifest is not optional
+            if (!manifest) {
+                Log.error(&quot;Sound.setup() failed: manifest argument is not optional&quot;, LOG_GROUP);
+                return;
+            }
+            &#x2F;&#x2F; Set manifest
+            this.soundManifest = manifest;
+            &#x2F;&#x2F; Setup SoundJS and load manifest
+            var callbackSoundReady = function () {
+                &#x2F;&#x2F; Install SoundJS as a plugin, then PreloadJS will initialize it automatically.
+                EC.Preload.preloader.installPlugin(SoundJS);
+
+                &#x2F;&#x2F;Available PreloadJS callbacks (Not in use so far)
+                EC.Preload.preloader.onFileLoad = function (event) {
+                    Log.debug(&quot;onFileLoad&quot;, LOG_GROUP);
+                };
+                EC.Preload.preloader.onComplete = function (event) {
+                    Log.debug(&quot;onComplete&quot;, LOG_GROUP);
+                };
+
+                &#x2F;&#x2F; Load manifest
+                Log.debug(&quot;Loading Sound Manifest&quot;, &quot;DEBUG&quot;, C.soundManifest);
+                EC.Preload.preloader.loadManifest(C.soundManifest, true);
+                if (callback) {
+                    callback();
+                }
+            };
+
+            &#x2F;&#x2F; First load PreloadJS and then SoundJS (by CreateJS)
+            if (!EC.Preload.preloader) {
+                EC.Preload.setup(function () {
+                    EC.loadScript(URL_CREATEJS_SOUNDJS, callbackSoundReady);
+                });
+            } else {
+                EC.loadScript(URL_CREATEJS_SOUNDJS, callbackSoundReady);
+            }
+        } catch (error) {
+            Log.error(&quot;Error in setup(): &quot; + error.toString(), LOG_GROUP, error);
+        }
+    };
+
+    &#x2F;**
+     * Play sound
+     * @param soundId
+     *&#x2F;
+    C.play = function (soundId, completeCallback) {
+        &#x2F;&#x2F;SoundJS.FlashPlugin.BASE_PATH = &quot;assets&#x2F;&quot; &#x2F;&#x2F; Initialize the base path from this document to the Flash Plugin
+        if (!SoundJS.checkPlugin(true)) {
+            Log.error(&quot;Error in SoundJS (SoundJS.checkPlugin(true) failed)&quot;, LOG_GROUP);
+            return;
+        }
+        &#x2F;&#x2F; Play Sound
+        Log.debug(&quot;Playing sound: &quot; + soundId, LOG_GROUP);
+        var instance = SoundJS.play(soundId, SoundJS.INTERRUPT_NONE, 0, 0, false, 1);
+        &#x2F;&#x2F; Callback
+        if (instance) {
+            instance.onComplete = completeCallback;
+        }
+    };
+
+    &#x2F;**
+     * Stop sound
+     * @param soundId
+     *&#x2F;
+    C.stop = function (soundId, completeCallback) {
+        if (!SoundJS.checkPlugin(true)) {
+            Log.error(&quot;Error in SoundJS (SoundJS.checkPlugin(true) failed)&quot;, LOG_GROUP);
+            return;
+        }
+        &#x2F;&#x2F; Stop Sound
+        Log.debug(&quot;Stopping sound: &quot; + soundId, LOG_GROUP);
+        var instance = SoundJS.stop(soundId);
+    };
+
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Init
+    &#x2F;&#x2F;------------------------------------
+    EC.Sound = C;
+    &#x2F;&#x2F;Log.debug(&quot;v&quot; + C.VERSION, LOG_GROUP);
+
+})(EdgeCommons);
+</pre>
+
+</div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/js/tabs.js"></script>
+</body>
+</html>

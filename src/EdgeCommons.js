@@ -1,4 +1,4 @@
-/**
+/*
  * EdgeCommons
  * Dirty little Helpers for Adobe Edge Animate
  * by Simon Widjaja
@@ -32,7 +32,7 @@
  * --------------------------------------------------------------------------------------------------------------------------------------------------
  * Features:
  * #Core
- * - Comfortable Loggin and Config with Modulog
+ * - Advanced Logging and Config with Modulog
  * - Loading external Scripts and Style Sheets with YepNope
  * - Injecting Data
  * #Sound
@@ -41,13 +41,16 @@
  * - PreloadJS (uses by SoundJS) (CreateJS)
  */
 
+/**
+TODO: DESCRIPTION FOR MASTER
+
+@module EdgeCommons
+**/
 (function (window) {
     //------------------------------------
     // Constructor
     //------------------------------------
     var EdgeCommons = function () {
-        // Multiton
-        console.log("Multiton");
     };
 
     //------------------------------------

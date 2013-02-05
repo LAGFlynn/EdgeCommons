@@ -26,6 +26,14 @@
 /**
  * Module: Experimental
  */
+
+/**
+TODO: DESCRIPTION FOR EXPERIMENTAL
+
+@module EdgeCommons
+@submodule Experimental
+@main EdgeCommons
+**/
 (function (EC) {
     //------------------------------------
     // Constructor
@@ -62,6 +70,93 @@
         name = name.replace("#", "");
         return name;
     };
+    
+    
+    //-------------------------------------------    
+    // SVG
+    //-------------------------------------------
+    /*
+		EC.accessSVG( sym.$("pie") )
+			.done(function(svgDocument, svgElement, uniqueId){
+				EC.debug("DONE");
+				var el = svgDocument.getElementById("Cyan");
+				$(el).attr({fill: "#000"});
+				$(el).click(function(){
+					alert("DYNAMIC CLICK ON INNER PATH");
+				});				
+			});    
+    */
+    C.accessSVG = function(element) {
+        if (element.is("div")) {
+			var imgSrc = element.css("background-image").replace("url(","").replace(")","");
+			// Remove "" in IE
+			imgSrc = imgSrc.replace("\"", "");
+		}
+		//TODO: Check if is SVG
+
+		// Replace with real SVG
+		// TODO: improve flicker (maybe set invisible during loading and wait for complete)
+		element.css("background-image", "");
+        var uniqueId = "ec_"+Math.random().toString(36).substring(7);
+		//element.append('<embed id="svgEmbed" src="'+imgSrc+'" type="image/svg+xml" />');
+		element.append('<embed id="'+uniqueId+'" src="'+imgSrc+'" type="image/svg+xml" />');
+        
+		// Create promise
+		var promise = new jQuery.Deferred();
+
+		// Wait for Embed to be loaded
+		//var embed = jQuery("#svgEmbed");
+        
+        var svgElement = document.getElementById(uniqueId);
+
+		svgElement.onload = function() {
+            var svgDocument = svgElement.getSVGDocument();
+			// TODO return id
+			promise.resolve( svgDocument, svgElement, uniqueId );
+		};
+        
+        return promise;
+    }
+    /*
+		// Existing SVG
+
+		var svgOriginEl = sym.$("pie");
+		if (svgOriginEl.is("div")) {
+			var imgSrc = svgOriginEl.css("background-image").replace("url(","").replace(")","");
+			// Remove "" in IE
+			imgSrc = imgSrc.replace("\"", "");
+		}
+		//TODO: Check if is SVG
+		console.log("imgSrc: ", imgSrc);
+
+		// Replace with real SVG
+		// TODO: improve flicker (maybe set invisible during loading and wait for complete)
+		svgOriginEl.css("background-image", "");
+		//svgOriginEl.append('<embed id="svgEmbed" src="'+imgSrc+'" type="image/svg+xml" />');
+		svgOriginEl.append('<embed id="svgEmbed" src="'+imgSrc+'" type="image/svg+xml" />');
+
+
+		// Create promise
+		var promise = new jQuery.Deferred();
+
+		// Wait for Embed to be loaded
+		var embed = jQuery("#svgEmbed");
+		//var innerWindow = iframe[0].contentWindow;
+
+
+		document.getElementById("svgEmbed").onload = function() {
+			console.log("embed ready (workaround)");
+			//debugger;
+			var svgDoc = document.getElementById("svgEmbed").getSVGDocument()
+			var el = svgDoc.getElementById("Cyan");
+			$(el).attr({fill: "#F00"});
+			$(el).click(function(){
+				alert("DYNAMIC CLICK ON INNER PATH");
+			});
+			// TODO return id
+			promise.resolve();
+		};
+    */
     
     //-------------------------------------------    
     // Speed Control    

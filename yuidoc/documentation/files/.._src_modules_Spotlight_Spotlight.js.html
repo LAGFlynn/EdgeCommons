@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>..&#x2F;src&#x2F;modules&#x2F;Spotlight&#x2F;Spotlight.js - EdgeCommons</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="..&#x2F;index.html"><img src="..&#x2F;assets/css/logo.png">EdgeCommons: ..&#x2F;src&#x2F;modules&#x2F;Spotlight&#x2F;Spotlight.js</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.8</em>
+        </div>
+    </div>
+    <div class="yui3-g">
+
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="..&#x2F;modules/Core.html">Core</a>
+                
+                </li>
+            
+                <li><a href="..&#x2F;modules/EdgeCommons.html">EdgeCommons</a>
+                
+                    <ul>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Experimental">Experimental</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Parallax">Parallax</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Preload">Preload</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Sound">Sound</a></li>
+                        
+                            <li><a href="..&#x2F;modules/EdgeCommons.html#Spotlight">Spotlight</a></li>
+                        
+                    </ul>
+                
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+<div id="classes" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Classes</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="..&#x2F;classes/Parallax.html">Parallax</a></li>
+            
+                <li><a href="..&#x2F;classes/Spotlight.html">Spotlight</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="fileTree" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Files</h2>
+    </div>
+    <div class="bd">
+        <ul><li>../<ul><li>src/<ul><li><a href="../files/.._src_EdgeCommons.js.html">EdgeCommons.js</a></li><li>libs/<ul><li><a href="../files/.._src_libs_Modulog-0.0.1.js.html">Modulog-0.0.1.js</a></li><li><a href="../files/.._src_libs_Modulog-0.0.2.js.html">Modulog-0.0.2.js</a></li></ul></li><li>modules/<ul><li>Core/<ul><li><a href="../files/.._src_modules_Core_Core.js.html">Core.js</a></li></ul></li><li>Experimental/<ul><li><a href="../files/.._src_modules_Experimental_Experimental.js.html">Experimental.js</a></li></ul></li><li>Parallax/<ul><li><a href="../files/.._src_modules_Parallax_Parallax.js.html">Parallax.js</a></li></ul></li><li>Preload/<ul><li><a href="../files/.._src_modules_Preload_Preload.js.html">Preload.js</a></li></ul></li><li>Sound/<ul><li><a href="../files/.._src_modules_Sound_Sound.js.html">Sound.js</a></li></ul></li><li>Spotlight/<ul><li><a href="../files/.._src_modules_Spotlight_Spotlight.js.html">Spotlight.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+    </div>
+</div>
+
+
+
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>..&#x2F;src&#x2F;modules&#x2F;Spotlight&#x2F;Spotlight.js</h4>
+
+<pre class="code prettyprint linenums">
+&#x2F;*
+ * EdgeCommons
+ * Dirty little Helpers for Adobe Edge
+ * by Simon Widjaja
+ *
+ * Copyright (c) 2012 Simon Widjaja
+ *
+ * --------------------------------------------------------------------------------------------------------------------------------------------------
+ * Released under MIT license
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;),
+ * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and&#x2F;or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ * --------------------------------------------------------------------------------------------------------------------------------------------------
+ * Additional 3rd party libraries are used. For related credits and license models take a closer look at the affected library.
+ * --------------------------------------------------------------------------------------------------------------------------------------------------
+ *&#x2F;
+
+&#x2F;*
+ * Module: Spotlight
+ * TODO: switch for type&#x2F;media
+ * TODO: config for background color
+ *&#x2F;
+
+&#x2F;**
+Spotlight: Overlay for media (e.g. YouTube) or external Edge Animate compositions
+
+@module EdgeCommons
+@submodule Spotlight
+@main EdgeCommons
+@class Spotlight
+**&#x2F;
+(function (EC) {
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Constructor
+    &#x2F;&#x2F;------------------------------------
+    var C = function () {
+    };
+
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Public
+    &#x2F;&#x2F;------------------------------------
+    C.VERSION = &quot;0.0.1&quot;;
+    C.compositions = {};
+    
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Private
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Logger
+    var Log = ModulogLog;
+    var LOG_GROUP = &quot;EdgeCommons | Spotlight&quot;;
+
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Methods
+    &#x2F;&#x2F;------------------------------------
+
+    &#x2F;**
+    Open a spotlight overlay by passing in a configuration object
+    @method open
+    @param config {Object} The configuration object
+    @param [documentContext=window.top.document] {Object} The parent context for the spotlight overlay (e.g. window.document or window.parent.document)
+    @return {Boolean} returns &lt;code&gt;true&lt;&#x2F;code&gt; whenever the opening of the spotlight overlay was successfull otherwise &lt;code&gt;false&lt;&#x2F;code&gt;
+    **&#x2F;    
+    C.open = function(config, documentContext) {
+        try {
+            &#x2F;&#x2F; Check arguments 
+            if (config.type != &quot;youtube&quot;) {
+                Log.error( &quot;Error in open(). Spotlight only supports type &#x27;youtube&#x27; in this version&quot;, LOG_GROUP );
+                return;
+            }
+            if (documentContext == undefined) {                
+                documentContext = window.top.document;
+            }
+            
+            &#x2F;&#x2F; Set defaults
+            config.width = config.width || 400;
+            config.height = config.height || 600;
+            config.borderWidth = config.borderWidth || 5;
+            config.borderColor = config.borderColor || &quot;#FFF&quot;;
+            
+            &#x2F;&#x2F; Add DOM elements
+            var tpl = &#x27;&lt;div id=&quot;spotlight&quot;&gt; &lt;div class=&quot;background&quot;&gt; &lt;&#x2F;div&gt; &lt;&#x2F;div&gt;&#x27;;
+            $(&quot;body&quot;, documentContext).append(tpl);
+            var tpl = &#x27;&lt;div class=&quot;base&quot;&gt;&lt;&#x2F;div&gt;&#x27;;
+            $(&quot;#spotlight .background&quot;, documentContext).append(tpl);
+            var tpl = &#x27;&lt;div class=&quot;close-button&quot;&gt;&lt;&#x2F;div&gt;&#x27;;
+            $(&quot;#spotlight .background&quot;, documentContext).append(tpl);
+            
+            &#x2F;&#x2F; Place close button
+            var closeButton = $(&quot;#spotlight .close-button&quot;, documentContext);
+            closeButton.css(&quot;margin-left&quot;, (0.5*config.width) - 15 + (config.borderWidth) )
+                .css(&quot;margin-top&quot;, (-0.5*config.height) - 15 );
+                
+            &#x2F;&#x2F; Set width and height and center
+            var base = $(&quot;#spotlight .base&quot;, documentContext);
+            base.css(&quot;width&quot;, 0)
+                .css(&quot;height&quot;, 0)
+                .css(&quot;margin-left&quot;, 0)
+                .css(&quot;margin-top&quot;, 0)
+                .css(&quot;border-width&quot;, config.borderWidth)
+                .css(&quot;border-color&quot;, config.borderColor)
+                .css(&quot;border-radius&quot;, 5);
+            
+            base.animate({
+                    width: config.width,
+                    &quot;margin-left&quot;: -0.5 * config.width,
+                    height: config.height,
+                    &quot;margin-top&quot;: -0.5 * config.height
+                },
+                400,
+                &quot;easeOutBack&quot;,
+                function() {
+                    $(&quot;#spotlight .content&quot;, documentContext).css(&quot;display&quot;, &quot;inline&quot;);
+                    $(&quot;#spotlight .fader&quot;, documentContext).fadeOut(2000);
+                    $(&quot;#spotlight .close-button&quot;, documentContext).fadeIn();
+                }
+            );
+            
+            &#x2F;&#x2F; Inject content
+            base.append(&#x27;&lt;div class=&quot;content&quot;&gt;&lt;&#x2F;div&gt;&#x27;);
+            var content = $(&quot;#spotlight .content&quot;, documentContext);
+            
+            &#x2F;&#x2F; TODO: switch for type&#x2F;media
+            content.append(&#x27;&lt;iframe width=&quot;&#x27;+config.width+&#x27;&quot; height=&quot;&#x27;+config.height+&#x27;&quot; &#x27;
+                +&#x27;src=&quot;http:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;&#x27;+config.param.media+&#x27;?autoplay=&#x27;+((config.param &amp;&amp; config.param.autoplay)?&quot;1&quot;:&quot;0&quot;)+&#x27;&quot; &#x27;
+                +&#x27;frameborder=&quot;0&quot; allowfullscreen&gt;&lt;&#x2F;iframe&gt;&#x27;);
+            content.append(&#x27;&lt;div class=&quot;fader&quot;&gt;&lt;&#x2F;div&gt;&#x27;);
+            var fader = $(&quot;#spotlight .fader&quot;, documentContext);
+            
+            &#x2F;&#x2F; On click
+            $(&quot;#spotlight .background&quot;, documentContext).click( function() {
+                EC.Spotlight.close( config, documentContext );
+            });
+            return true;
+        }
+        catch( err ) {
+            Log.error(err.toString());
+            return false;
+        }
+    };
+     
+    &#x2F;**
+    Close an existing spotlight overlay  
+    (This function usually gets called by the internal close button)
+    @method close
+    @param [documentContext=window.top.document] {Object} The parent context for the spotlight overlay (e.g. window.document or window.parent.document)
+    **&#x2F;     
+    C.close = function(config, documentContext) {
+        if (documentContext == undefined) {                
+            documentContext = window.top.document;
+        }
+        
+        $(&quot;#spotlight .content&quot;, documentContext).remove();
+        $(&quot;#spotlight .close-button&quot;, documentContext).remove();
+        $(&quot;#spotlight .background&quot;, documentContext).fadeOut(400);
+        
+        var base = $(&quot;#spotlight .base&quot;, documentContext);
+        base.animate({
+                width: 0,
+                &quot;margin-left&quot;: 0,
+                height: 0,
+                &quot;margin-top&quot;: 0,
+                opacity: 0
+            },
+            400,
+            &quot;easeOutCubic&quot;,
+            function() {
+                $(&quot;#spotlight&quot;, documentContext).remove();
+            }
+        );        
+    }
+        
+    &#x2F;&#x2F;------------------------------------
+    &#x2F;&#x2F; Init
+    &#x2F;&#x2F;------------------------------------
+    EC.Spotlight = C;
+    &#x2F;&#x2F;Log.debug(&quot;v&quot; + C.VERSION, LOG_GROUP);
+
+})(EdgeCommons);
+</pre>
+
+</div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/js/tabs.js"></script>
+</body>
+</html>

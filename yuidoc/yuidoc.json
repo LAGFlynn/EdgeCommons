@@ -1,0 +1,14 @@
+{
+    "name": "EdgeCommons",
+    "description": "Dirty Little Helpers for Adobe Edge",
+    "version": "0.0.8",
+    "url": "http://www.edgecommons.org/",
+    "options": {
+        "selleck": "false",
+        "ignorePaths": [ "simpleyui" ],
+        "paths": [
+            "../src"
+        ],
+        "outdir": "./documentation"
+    }
+}

@@ -26,6 +26,14 @@
 /**
  * Module: Preload
  */
+
+/**
+TODO: DESCRIPTION FOR PRELOAD
+
+@module EdgeCommons
+@submodule Preload
+@main EdgeCommons
+**/
 (function (EC) {
     //------------------------------------
     // Constructor

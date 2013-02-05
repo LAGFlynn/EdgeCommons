@@ -26,6 +26,14 @@
 /**
  * Module: Parallax
  */
+
+/**
+Parallax Scrolling for Edge Animate
+@module EdgeCommons
+@submodule Parallax
+@main EdgeCommons
+@class Parallax
+**/
 (function (EC) {
     //------------------------------------
     // Constructor
@@ -71,8 +79,14 @@
     }
         
     /**
-     * Setup Parallax
-     */
+    Setup Parallax Scrolling for a specific composition
+
+        // e.g. in compositionReady event
+        EC.Parallax.setup( sym );
+
+    @method setup
+    @param sym {Symbol} A Symbol within the affected composition  
+    **/           
     C.setup = function(sym) {
         // Check arguments 
         if (!sym) {

@@ -27,6 +27,14 @@
  * Module: Sound
  * Bridge to the great framework by Grant Skinner "CreateJS"
  */
+
+/**
+TODO: DESCRIPTION FOR SOUND
+
+@module EdgeCommons
+@submodule Sound
+@main EdgeCommons
+**/
 (function (EC) {
     //------------------------------------
     // Constructor
