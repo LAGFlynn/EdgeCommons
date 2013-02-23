@@ -2,7 +2,7 @@
 echo "Compiling...";
 
 # VARIABLES
-VERSION="0.8.0"
+VERSION="0.9.0"
 LICENSE="// EdgeCommons v$VERSION +++ Visit edgecommons.org for documentation, updates and examples +++ Copyright (c) 2013 by Simon Widjaja +++ Distributed under the terms of the MIT license (http://www.opensource.org/licenses/mit-license.html) +++ This notice shall be included in all copies or substantial portions of the Software." 
 
 # PREPARE

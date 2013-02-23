@@ -25,12 +25,11 @@
 
 /*
  * Module: Spotlight
- * TODO: switch for type/media
  * TODO: config for background color
  */
 
 /**
-Spotlight: Overlay for media (e.g. YouTube) or external Edge Animate compositions
+Spotlight: Overlay for media (e.g. Images, YouTube) or external Edge Animate compositions
 
 @module EdgeCommons
 @submodule Spotlight
@@ -47,8 +46,7 @@ Spotlight: Overlay for media (e.g. YouTube) or external Edge Animate composition
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.0.1";
-    C.compositions = {};
+    C.VERSION = "0.3.1";
     
     //------------------------------------
     // Private
@@ -64,15 +62,26 @@ Spotlight: Overlay for media (e.g. YouTube) or external Edge Animate composition
     /**
     Open a spotlight overlay by passing in a configuration object
     @method open
-    @param config {Object} The configuration object
+    @param config {Object} The configuration object  
+        <pre>
+            var config = {
+                width: 700,             // Width of the overlay
+                height: 400,            // Height of the overlay
+                borderWidth: 5,         // Border width (px)
+                borderColor: "#FFF",    // Border color
+                type: "image",          // Media type (image|animate|youtube)
+                source: "images/MyImage.png", // Source to media
+                param: {}               // Additional parameter dependent on type (e.g. autoPlay: true for youtube)
+            }
+        </pre>
     @param [documentContext=window.top.document] {Object} The parent context for the spotlight overlay (e.g. window.document or window.parent.document)
     @return {Boolean} returns <code>true</code> whenever the opening of the spotlight overlay was successfull otherwise <code>false</code>
     **/    
     C.open = function(config, documentContext) {
         try {
             // Check arguments 
-            if (config.type != "youtube") {
-                Log.error( "Error in open(). Spotlight only supports type 'youtube' in this version", LOG_GROUP );
+            if (config.type != "image" && config.type != "animate" && config.type != "youtube") {
+                Log.error( "Error in open(). Unsupported type: "+config.type, LOG_GROUP );
                 return;
             }
             if (documentContext == undefined) {                
@@ -128,12 +137,20 @@ Spotlight: Overlay for media (e.g. YouTube) or external Edge Animate composition
             var content = $("#spotlight .content", documentContext);
             
             // TODO: switch for type/media
-            content.append('<iframe width="'+config.width+'" height="'+config.height+'" '
-                +'src="http://www.youtube.com/embed/'+config.param.media+'?autoplay='+((config.param && config.param.autoplay)?"1":"0")+'" '
-                +'frameborder="0" allowfullscreen></iframe>');
-            /*
-            content.append('<img src="Dave.jpg" />');
-            */
+            switch (config.type) {
+                case "image":
+                    content.append('<img src="'+config.source+'" />');                    
+                    break;
+                case "animate":
+                    content.append('<iframe src="'+config.source+'" style="overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none;"></iframe>');                    
+                    break;
+                case "youtube":
+                    content.append('<iframe width="'+config.width+'" height="'+config.height+'" '
+                        +'src="http://www.youtube.com/embed/'+config.source+'?autoplay='+((config.param && config.param.autoPlay)?"1":"0")+'" '
+                        +'frameborder="0" allowfullscreen></iframe>');
+                    break;
+            }
+
             content.append('<div class="fader"></div>');
             var fader = $("#spotlight .fader", documentContext);
             
@@ -148,7 +165,7 @@ Spotlight: Overlay for media (e.g. YouTube) or external Edge Animate composition
             return false;
         }
     };
-     
+
     /**
     Close an existing spotlight overlay  
     (This function usually gets called by the internal close button)

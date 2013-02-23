@@ -88,9 +88,9 @@ h5, h6 { font-size: 107.692%; }
 
 /* -- Code and examples ----------------------------------------------------- */
 code, kbd, pre, samp {
-    font-family: Menlo, Monaco, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+    font-family: Courier, monospace;
     font-size: 92.308%;
-    line-height: 1.35;
+    line-height: 1em;
 }
 
 p code, p kbd, p samp {

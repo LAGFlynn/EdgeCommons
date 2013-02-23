@@ -21,6 +21,7 @@ Spotlight
 }
 
 #spotlight .close-button {
+    z-index: 999;
     position: absolute; 
     width: 30px; 
     height: 30px;

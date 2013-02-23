@@ -43,6 +43,8 @@ TODO: DESCRIPTION FOR EXPERIMENTAL
     //------------------------------------
     // Public
     //------------------------------------
+    C.Experimental = {}; 
+    C.Experimental.VERSION = "0.0.3";
     
     //------------------------------------
     // Private
@@ -60,8 +62,6 @@ TODO: DESCRIPTION FOR EXPERIMENTAL
     // if name should be used in sym.getSymbol(NAME) the preceding "#" is necessary
     //-------------------------------------------   
     C.getSymbolName = function(sym) {
-        // Old version (doesn't always work)
-        //return sym.element.selector.replace("#"+sym.getParentSymbol().element[0].id+"_", "");
         var name = sym.getVariable("symbolSelector"); // still with #
         var paraentSymbol = sym.getParentSymbol();
         if (paraentSymbol) {
@@ -98,8 +98,7 @@ TODO: DESCRIPTION FOR EXPERIMENTAL
 		// TODO: improve flicker (maybe set invisible during loading and wait for complete)
 		element.css("background-image", "");
         var uniqueId = "ec_"+Math.random().toString(36).substring(7);
-		//element.append('<embed id="svgEmbed" src="'+imgSrc+'" type="image/svg+xml" />');
-		element.append('<embed id="'+uniqueId+'" src="'+imgSrc+'" type="image/svg+xml" />');
+		element.append('<embed id="'+uniqueId+'" src="'+imgSrc+'" type="image/svg+xml" width="100%" height="100%" />');
         
 		// Create promise
 		var promise = new jQuery.Deferred();
