@@ -2,7 +2,7 @@
 echo "Compiling...";
 
 # VARIABLES
-VERSION="0.9.0"
+VERSION="0.9.1"
 LICENSE="// EdgeCommons v$VERSION +++ Visit edgecommons.org for documentation, updates and examples +++ Copyright (c) 2013 by Simon Widjaja +++ Distributed under the terms of the MIT license (http://www.opensource.org/licenses/mit-license.html) +++ This notice shall be included in all copies or substantial portions of the Software." 
 
 # PREPARE
@@ -36,17 +36,17 @@ java -jar compiler.jar \
     --js ../src/libs/Modulog-0.0.2.js \
     --js ../src/EdgeCommons.js \
     --js ../src/modules/Core/Core.js \
-    --js ../src/modules/Preload/Preload.js \
     --js ../src/modules/Sound/Sound.js \
     --js ../src/modules/Parallax/Parallax.js \
     --js ../src/modules/Spotlight/Spotlight.js \
+    --js ../src/modules/SVG/SVG.js \
     --js ../src/modules/Experimental/Experimental.js \
 
 echo $LICENSE|cat - $FILE > /tmp/out && mv /tmp/out $FILE
 echo "Job done: Experimental";
 
 
-<<COMMENT
+
 
 
 ##########################################
@@ -60,10 +60,10 @@ java -jar compiler.jar \
     --js ../src/libs/Modulog-0.0.2.js \
     --js ../src/EdgeCommons.js \
     --js ../src/modules/Core/Core.js \
-    --js ../src/modules/Preload/Preload.js \
     --js ../src/modules/Sound/Sound.js \
     --js ../src/modules/Parallax/Parallax.js \
     --js ../src/modules/Spotlight/Spotlight.js \
+    --js ../src/modules/SVG/SVG.js \
 
 echo $LICENSE|cat - $FILE > /tmp/out && mv /tmp/out $FILE
 echo "Job done: All-in-One";
@@ -86,17 +86,17 @@ echo "Job done: Core";
 
 
 ##########################################
-# Job: Spotlight
+# Job: Sound
 ##########################################
-FILE="../sprint/an/$VERSION/js/min/EdgeCommons.Spotlight.js"
+FILE="../sprint/an/$VERSION/js/min/EdgeCommons.Sound.js"
 java -jar compiler.jar \
     --compilation_level SIMPLE_OPTIMIZATIONS \
     --formatting PRINT_INPUT_DELIMITER \
     --js_output_file $FILE \
-    --js ../src/modules/Spotlight/Spotlight.js \
+    --js ../src/modules/Sound/Sound.js \
 
 echo $LICENSE|cat - $FILE > /tmp/out && mv /tmp/out $FILE
-echo "Job done: Spotlight";
+echo "Job done: Sound";
 
 
 ##########################################
@@ -111,6 +111,41 @@ java -jar compiler.jar \
 
 echo $LICENSE|cat - $FILE > /tmp/out && mv /tmp/out $FILE
 echo "Job done: Parallax";
+
+
+##########################################
+# Job: Spotlight
+##########################################
+FILE="../sprint/an/$VERSION/js/min/EdgeCommons.Spotlight.js"
+java -jar compiler.jar \
+    --compilation_level SIMPLE_OPTIMIZATIONS \
+    --formatting PRINT_INPUT_DELIMITER \
+    --js_output_file $FILE \
+    --js ../src/modules/Spotlight/Spotlight.js \
+
+echo $LICENSE|cat - $FILE > /tmp/out && mv /tmp/out $FILE
+echo "Job done: Spotlight";
+
+
+##########################################
+# Job: SVG
+##########################################
+FILE="../sprint/an/$VERSION/js/min/EdgeCommons.SVG.js"
+java -jar compiler.jar \
+    --compilation_level SIMPLE_OPTIMIZATIONS \
+    --formatting PRINT_INPUT_DELIMITER \
+    --js_output_file $FILE \
+    --js ../src/modules/SVG/SVG.js \
+
+echo $LICENSE|cat - $FILE > /tmp/out && mv /tmp/out $FILE
+echo "Job done: SVG";
+
+
+
+
+
+
+<<COMMENT
 
 
 

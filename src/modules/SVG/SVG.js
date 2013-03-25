@@ -1,4 +1,4 @@
-/**
+/*
  * EdgeCommons
  * Dirty little Helpers for Adobe Edge
  * by Simon Widjaja
@@ -23,16 +23,17 @@
  * --------------------------------------------------------------------------------------------------------------------------------------------------
  */
 
-/**
- * Module: Preload
+/*
+ * Module: SVG
  */
 
 /**
-TODO: DESCRIPTION FOR PRELOAD
+SVG: Interactive SVG within you Edge Animate compositions
 
 @module EdgeCommons
-@submodule Preload
+@submodule SVG
 @main EdgeCommons
+@class SVG
 **/
 (function (EC) {
     //------------------------------------
@@ -44,47 +45,67 @@ TODO: DESCRIPTION FOR PRELOAD
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.0.1";
-    C.preloader = null;
-
+    C.VERSION = "1.0.0";
+    
     //------------------------------------
     // Private
     //------------------------------------
     // Logger
     var Log = ModulogLog;
-    var LOG_GROUP = "EdgeCommons | Preload";
-    var URL_CREATEJS_PRELOADER = "http://code.createjs.com/preloadjs-0.1.0.min.js";
+    var LOG_GROUP = "EdgeCommons | SVG";
 
     //------------------------------------
     // Methods
-    //------------------------------------
+    //------------------------------------  
     /**
-     * Setup Preloader and call callback.
-     * Callback will be called when Preloader is ready
-     * or directly if Preloader already exists
-     * @param callback
-     */
-    C.setup = function (callback) {
-        try {
-            if (!C.preloader) {
-                EC.loadScript(URL_CREATEJS_PRELOADER, function () {
-                    C.preloader = new PreloadJS();
-                    callback();
-                });
-            }
-            else {
-                callback();
-            }
-        } catch (error) {
-            Log.error("Error in setup(): " + error.toString(), LOG_GROUP, error);
-        }
-    };
+    Convert SVG to be accessible
+        <pre>
+		EC.accessSVG( sym.$("pie") )
+			.done(function(svgDocument, svgElement, uniqueId){
+				EC.debug("DONE");
+				var el = svgDocument.getElementById("Cyan");
+				$(el).attr({fill: "#000"});
+				$(el).click(function(){
+					alert("DYNAMIC CLICK ON INNER PATH");
+				});				
+			});  
+        </pre>        
+    **/
+    C.accessSVG = function(element) {
+        if (element.is("div")) {
+			var imgSrc = element.css("background-image").replace("url(","").replace(")","");
+			// Remove "" in IE
+			imgSrc = imgSrc.replace("\"", "");
+		}
+		//TODO: Check if is SVG
 
+		// Replace with real SVG
+		// TODO: improve flicker (maybe set invisible during loading and wait for complete)
+		element.css("background-image", "");
+        var uniqueId = "ec_"+Math.random().toString(36).substring(7);
+		element.append('<embed id="'+uniqueId+'" src="'+imgSrc+'" type="image/svg+xml" width="100%" height="100%" />');
+        
+		// Create promise
+		var promise = new jQuery.Deferred();
 
+		// Wait for Embed to be loaded
+		//var embed = jQuery("#svgEmbed");
+        
+        var svgElement = document.getElementById(uniqueId);
+
+		svgElement.onload = function() {
+            var svgDocument = svgElement.getSVGDocument();
+			// TODO return id
+			promise.resolve( svgDocument, svgElement, uniqueId );
+		};
+        
+        return promise;
+    }
+        
     //------------------------------------
     // Init
     //------------------------------------
-    EC.Preload = C;
+    EC.SVG = C;
     //Log.debug("v" + C.VERSION, LOG_GROUP);
 
 })(EdgeCommons);

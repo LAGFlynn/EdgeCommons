@@ -46,7 +46,7 @@ Spotlight: Overlay for media (e.g. Images, YouTube) or external Edge Animate com
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.3.1";
+    C.VERSION = "1.0.0";
     
     //------------------------------------
     // Private

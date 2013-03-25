@@ -32,7 +32,7 @@
 
 /**
 The core module of EdgeCommons 
-Version 0.0.6
+Version 1.0.0
 @module Core
 **/
 (function (EC) {
@@ -45,7 +45,7 @@ Version 0.0.6
     //------------------------------------
     // Public
     //------------------------------------
-    C.VERSION = "0.0.6";
+    C.VERSION = "1.0.0";
 
     //------------------------------------
     // Private
