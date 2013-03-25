@@ -114,6 +114,7 @@ Version 0.0.6
 
     /**
      * Adaptive
+     * TODO: add flag: compare to width of window/document instead of stage (necessary if stage has fxied and is centered)
      */
     EC.setAdaptiveLayouts = function(adaptiveLayouts, sym, adaptiveContainer) {
         if (!adaptiveLayouts || !adaptiveLayouts.length) {

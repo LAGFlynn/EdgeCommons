@@ -65,13 +65,13 @@ Spotlight: Overlay for media (e.g. Images, YouTube) or external Edge Animate com
     @param config {Object} The configuration object  
         <pre>
             var config = {
-                width: 700,             // Width of the overlay
-                height: 400,            // Height of the overlay
-                borderWidth: 5,         // Border width (px)
-                borderColor: "#FFF",    // Border color
-                type: "image",          // Media type (image|animate|youtube)
-                source: "images/MyImage.png", // Source to media
-                param: {}               // Additional parameter dependent on type (e.g. autoPlay: true for youtube)
+                width: 700,                     // Width of the overlay
+                height: 400,                    // Height of the overlay
+                borderWidth: 5,                 // Border width (px)
+                borderColor: "#FFF",            // Border color
+                type: "image",                  // Media type (image|animate|youtube)
+                source: "images/MyImage.png",   // Source to media
+                param: {}                       // Additional parameter dependent on type (e.g. autoPlay: true for youtube)
             }
         </pre>
     @param [documentContext=window.top.document] {Object} The parent context for the spotlight overlay (e.g. window.document or window.parent.document)
@@ -136,13 +136,21 @@ Spotlight: Overlay for media (e.g. Images, YouTube) or external Edge Animate com
             base.append('<div class="content"></div>');
             var content = $("#spotlight .content", documentContext);
             
-            // TODO: switch for type/media
+            // Base Url (if composition is running in iframe but spotlight's context is top document)
+            var hrefArray = document.location.href.split("/");
+            var lastHrefElement = hrefArray[ hrefArray.length-1 ];
+            if (lastHrefElement.indexOf(".") != -1) { hrefArray.pop(); }
+            var baseUrl = hrefArray.join("/");
+            
+            // Media Types
             switch (config.type) {
                 case "image":
-                    content.append('<img src="'+config.source+'" />');                    
+                    var src = baseUrl + "/" + config.source;
+                    content.append('<img src="'+src+'" />');                    
                     break;
                 case "animate":
-                    content.append('<iframe src="'+config.source+'" style="overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none;"></iframe>');                    
+                    var src = baseUrl + "/" + config.source;
+                    content.append('<iframe src="'+src+'" style="overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none;"></iframe>');                    
                     break;
                 case "youtube":
                     content.append('<iframe width="'+config.width+'" height="'+config.height+'" '
