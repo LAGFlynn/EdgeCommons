@@ -46,7 +46,7 @@ TODO: DESCRIPTION FOR MASTER
 
 @module EdgeCommons
 **/
-(function (window) {
+(function (window, $) {
     //------------------------------------
     // Constructor
     //------------------------------------
@@ -57,6 +57,7 @@ TODO: DESCRIPTION FOR MASTER
     // Public
     //------------------------------------
     EdgeCommons.VERSION = "1.0.0";
+    EdgeCommons.$ = $;
 
     //------------------------------------
     // Private
@@ -73,4 +74,4 @@ TODO: DESCRIPTION FOR MASTER
     window.EC = window.EdgeCommons = EdgeCommons;
     //Log.debug("v" + VERSION, LOG_GROUP);
 
-})(window);
+})(window, jQuery);

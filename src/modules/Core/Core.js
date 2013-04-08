@@ -50,6 +50,8 @@ Version 1.0.0
     //------------------------------------
     // Private
     //------------------------------------
+    // jQuery
+    var $ = EC.$;
     // Logger
     var Log = ModulogLog;
     var LOG_GROUP = "EdgeCommons | Core";

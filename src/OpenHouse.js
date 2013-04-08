@@ -31,7 +31,7 @@ TODO: DESCRIPTION FOR OPEN HOUSE
 
 @module OpenHouse
 **/
-(function (window) {
+(function (window, $) {
     //------------------------------------
     // Constructor
     //------------------------------------
@@ -89,4 +89,4 @@ TODO: DESCRIPTION FOR OPEN HOUSE
     window.OpenHouse = OpenHouse;
     //Log.debug("v" + VERSION, LOG_GROUP);
 
-})(window);
+})(window, jQuery);

@@ -49,6 +49,8 @@ TODO: DESCRIPTION FOR EXPERIMENTAL
     //------------------------------------
     // Private
     //------------------------------------
+    // jQuery
+    var $ = EC.$;
     // Logger
     var LOG_GROUP = "EdgeCommons | Experimental";
 
