@@ -110,9 +110,9 @@
  * ModulogConfig
  * by Simon Widjaja
  * Usage:
- * - Condig.init(configObject);
- * - Condig.init(url, callback);
- * - Condig.set("topic.subtopic.value", value);
+ * - Config.init(configObject);
+ * - Config.init(url, callback);
+ * - Config.set("topic.subtopic.value", value);
  * - Config.get("topic.subtopic.value");
  */
 (function (Modulog) {
@@ -159,7 +159,7 @@
     };
     C.init = function (param, readyCallback) {
         // URL
-        if ((typeof(param) === "string") && (jQuery)) {
+        if ((typeof(param) === "string") && (jQuery)) {          
             $.getJSON(param, function (data) {
                 config = data;
                 if (typeof(readyCallback) === "function") {

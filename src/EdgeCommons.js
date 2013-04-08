@@ -56,7 +56,7 @@ TODO: DESCRIPTION FOR MASTER
     //------------------------------------
     // Public
     //------------------------------------
-    EdgeCommons.VERSION = "0.9.1";
+    EdgeCommons.VERSION = "1.0.0";
 
     //------------------------------------
     // Private

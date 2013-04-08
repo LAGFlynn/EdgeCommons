@@ -57,19 +57,7 @@ TODO: DESCRIPTION FOR EXPERIMENTAL
     //------------------------------------
    
 
-    //-------------------------------------------    
-    // Core: getSymbolName    
-    // if name should be used in sym.getSymbol(NAME) the preceding "#" is necessary
-    //-------------------------------------------   
-    C.getSymbolName = function(sym) {
-        var name = sym.getVariable("symbolSelector"); // still with #
-        var paraentSymbol = sym.getParentSymbol();
-        if (paraentSymbol) {
-            name = name.replace(paraentSymbol.getVariable("symbolSelector")+"_", "");
-        }
-        name = name.replace("#", "");
-        return name;
-    };
+
 
     //-------------------------------------------    
     // Speed Control    

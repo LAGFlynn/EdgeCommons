@@ -56,34 +56,29 @@ Version 1.0.0
     // Adaptive Layouts
     var _adaptiveLayouts = null;
     var _currentAdaptiveLayout = null;
+    var _adaptiveLayoutCallback = null;
 
 
     //------------------------------------
     // Methods
     //------------------------------------
+    
     /**
-     * Load external JavaScript and add it to the body of the document's head
-     * Depricated (but still used in Preload and Sound)
-     */
-    EC.loadScript = function (url, callback) {
-        Log.debug("loadScript: " + url, LOG_GROUP);
-        try {
-            // Use yepnope to load script and optionally call callback
-            yepnope({
-                load: url,
-                callback: function (pUrl, pTestResult, pKey) {
-                    if (pUrl == url) {
-                        Log.debug("Loading external script was successful: " + url, LOG_GROUP);
-                        if (typeof callback === "function") {
-                            callback();
-                        }
-                    }
-                }
-            });
-        } catch (error) {
-            Log.error("Loading external script failed: " + url, LOG_GROUP);
+     * Get Symbol Name
+     * (if name should be used in sym.getSymbol(NAME) the preceding "#" is necessary)
+     * @param sym Reference to a Edge Symbol
+     * @return name of symbol (String) 
+     */    
+    C.getSymbolName = function(sym) {
+        var name = sym.getVariable("symbolSelector"); // still with #
+        var paraentSymbol = sym.getParentSymbol();
+        if (paraentSymbol) {
+            name = name.replace(paraentSymbol.getVariable("symbolSelector")+"_", "");
         }
-    };
+        name = name.replace("#", "");
+        return name;
+    };    
+    
     /**
      * Data Injection
      * @param sym Reference to a Edge Symbol (does not matter which one)
@@ -116,7 +111,7 @@ Version 1.0.0
      * Adaptive
      * TODO: add flag: compare to width of window/document instead of stage (necessary if stage has fxied and is centered)
      */
-    EC.setAdaptiveLayouts = function(adaptiveLayouts, sym, adaptiveContainer) {
+    EC.setAdaptiveLayouts = function(adaptiveLayouts, sym, adaptiveContainer, callback) {
         if (!adaptiveLayouts || !adaptiveLayouts.length) {
             Log.error( "Error in setAdaptiveLayouts(). Argument 'layouts' is not optional and has to be an array.", LOG_GROUP );
             return;
@@ -128,6 +123,11 @@ Version 1.0.0
         // automatically since in older versions (e.g. 0.4.0 @ Adobe TV) applyAdaptiveLayout() will be called manually
         if (!sym) {
             return;
+        }
+        
+        // Register optional callback
+        if (typeof(callback) == "function") {
+            _adaptiveLayoutCallback = callback;
         }
         
         // Register event handler for resize, so the right adaptive layout gets displayed
@@ -158,10 +158,14 @@ Version 1.0.0
                 //console.log("calcLayout: "+calcLayout);
 
                 if (_currentAdaptiveLayout != calcLayout ) {
-                    Log.debug( "Switching to: layout"+calcLayout, LOG_GROUP );
+                    //Log.debug( "Switching to: layout"+calcLayout, LOG_GROUP );
                     _currentAdaptiveLayout = calcLayout;
                     container.html("");
-                    sym.createChildSymbol("layout"+calcLayout, adaptiveContainer);
+                    var layoutSym = sym.createChildSymbol("layout"+calcLayout, adaptiveContainer);
+                    // Optional callback
+                    if ( typeof(_adaptiveLayoutCallback) == "function" ) {
+                        _adaptiveLayoutCallback( calcLayout, layoutSym );
+                    }
                 }
                 // Display mode (debug only)
                 sym.$("currentLayout").html(sym.getVariable("layout"));
@@ -211,7 +215,7 @@ Version 1.0.0
             // Inject IFrame
             var el = sym.getSymbolElement();
             var uniqueId = "ec_"+Math.random().toString(36).substring(7);
-            el.html('<iframe id="'+uniqueId+'" src="'+src+'" style="overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none;"></iframe>');
+            el.html('<iframe id="'+uniqueId+'" src="'+src+'" style="overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none; background-color: rgba(255,255,255,0)"></iframe>');
             // Create promise
             var promise = new jQuery.Deferred();
             

@@ -145,11 +145,11 @@ Spotlight: Overlay for media (e.g. Images, YouTube) or external Edge Animate com
             // Media Types
             switch (config.type) {
                 case "image":
-                    var src = baseUrl + "/" + config.source;
+                    var src = (config.source.indexOf("http:") == -1 ) ? baseUrl + "/" + config.source : config.source;
                     content.append('<img src="'+src+'" />');                    
                     break;
                 case "animate":
-                    var src = baseUrl + "/" + config.source;
+                    var src = (config.source.indexOf("http:") == -1 ) ? baseUrl + "/" + config.source : config.source;
                     content.append('<iframe src="'+src+'" style="overflow: hidden; width: 100%; height: 100%; margin: auto; border: 0 none;"></iframe>');                    
                     break;
                 case "youtube":
