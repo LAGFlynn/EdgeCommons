@@ -51,6 +51,8 @@ TODO: DESCRIPTION FOR SOUND
     //------------------------------------
     // Private
     //------------------------------------
+    // jQuery
+    var $ = EC.$;
     // Logger
     var Log = ModulogLog;
     var LOG_GROUP = "EdgeCommons | Sound";

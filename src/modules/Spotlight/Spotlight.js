@@ -51,6 +51,8 @@ Spotlight: Overlay for media (e.g. Images, YouTube) or external Edge Animate com
     //------------------------------------
     // Private
     //------------------------------------
+    // jQuery
+    var $ = EC.$;
     // Logger
     var Log = ModulogLog;
     var LOG_GROUP = "EdgeCommons | Spotlight";

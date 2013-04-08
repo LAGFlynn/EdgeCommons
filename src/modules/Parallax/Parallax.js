@@ -50,6 +50,8 @@ Parallax Scrolling for Edge Animate
     //------------------------------------
     // Private
     //------------------------------------
+    // jQuery
+    var $ = EC.$;
     // Logger
     var Log = ModulogLog;
     var LOG_GROUP = "EdgeCommons | Parallax";

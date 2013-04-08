@@ -50,6 +50,8 @@ SVG: Interactive SVG within you Edge Animate compositions
     //------------------------------------
     // Private
     //------------------------------------
+    // jQuery
+    var $ = EC.$;
     // Logger
     var Log = ModulogLog;
     var LOG_GROUP = "EdgeCommons | SVG";
