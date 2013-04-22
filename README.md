@@ -1,4 +1,4 @@
-![EdgeCommons by Simon Widjaja](http://simonwidjaja.github.com/EdgeCommons/images/EdgeCommonsHeader.png)
+![EdgeCommons by Simon Widjaja](http://temp.trendspurt.com/github_live/ec_github_announce.jpg)
 ***
 
 ### We love Adobe Edge Animate. This library extends Edge Animate and enables some cool features ;) Join us!
