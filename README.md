@@ -5,27 +5,26 @@
 
 ***
 
-Current realease: 0.7.1
-(more info in changelog in documentation)
+Current realease: 1.0.0
 
 ***
 
 **What is EdgeCommons?**
 
-EdgeCommons is a library for common tasks in Adobe Edge Animate by Simon Widjaja and friends.
+The purpose of this extension library is to improve the workflow and enhance the possibilities of Animate compositions. There are several components available, such as Parallax Scrolling, Spotlight Overlay or Adaptive Layouts. The components listed here are already tested and documented. We are, however, steadily working on new features and components.
 
-**Quickstart Guide**
+The Edge Commons are completely open source and therefor free to use in personal and commercial projects. If you are interested, you can also contribute to the project on GitHub.
 
-Put this line in the compositionReady event of your Edge Animate composition and you are ready to go:
+**Official Website and Documentation**
 
-``yepnope({load: "http://simonwidjaja.github.com/EdgeCommons/live/EdgeCommons-0.7.1.js"});``
-
-**Is there a documentation?**
-
-Yes: [Link](http://simonwidjaja.github.com/EdgeCommons/doc/) (work in progress)
+ [Link](http://www.edgedocks.com/edgecommons)
 
 **Features so far: (more to come)**
 
+- Misc. Helper functions
+- Composition Loader to load and nest compositions
+- Parallax Scrolling with one line of code
+- Spotlight Overlay for media (images, animations and youtube)
 - Advanced Logging (different levels, log group and additional log targets)
 - Configuration (external or internal Configuration layer)
 - Script Loader (JavaScript and CSS with simple callback)
