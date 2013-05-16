@@ -62,10 +62,6 @@ Version 1.0.0
 
     var originalFonts = {};
     var fontMap = {};
-    fontMap['900'] = {};
-    fontMap['900']['MinWidth'] = 480;
-    fontMap['900']['19'] = {};
-    fontMap['900']['19']['MinFont'] = 13;
 
 
     //------------------------------------
@@ -251,26 +247,29 @@ Version 1.0.0
         }
         return promise;
     }
+	
+	EC.setFontMap = function(newFontMap){
+		fontMap = newFontMap;
+	}
 
     EC.initializeAndStoreFonts = function(stage){
-        var textElements = $('.resizableText', stage);
+        var textElements = sym.$('.resizableText');
         for(var i = 0; i<textElements.length; i++){
             var targetElement = textElements[i];
             var fontSize = targetElement.style.fontSize;
-            EdgeUtility.originalFonts[targetElement.id] = parseInt(fontSize);
+            originalFonts[targetElement.id] = parseInt(fontSize);
         }
     }
 
     EC.reinitializeFonts = function(stage){
-        EdgeUtility.originalFonts = {};
-        EdgeUtility.initializeAndStoreFonts(stage);
+        originalFonts = {};
+        EC.initializeAndStoreFonts(stage);
     }
 
     EC.resizeAllFonts = function(originalWindowWidth){
-        for(var textElementId in EdgeUtility.originalFonts){
+        for(var textElementId in originalFonts){
             var targetElement = $('#' + textElementId)[0];
-            console.log(targetElement == null || targetElement == undefined);
-            EdgeUtility.resizeSpecificFont(targetElement, originalWindowWidth);
+            EC.resizeSpecificFont(targetElement, originalWindowWidth);
         }
     }
 
@@ -279,12 +278,12 @@ Version 1.0.0
         var winWidth = $(window).width();
         var widthRatio = winWidth / maxWindowWidth;
 
-        var originalFontSize = EdgeUtility.originalFonts[targetElement.id];
+        var originalFontSize = originalFonts[targetElement.id];
 
         var newFontSize = originalFontSize * widthRatio;
         newFontSize = Math.round(newFontSize);
-        if(newFontSize < EdgeUtility.fontMap[originalWindowWidth][originalFontSize]['MinFont']){
-            newFontSize = EdgeUtility.fontMap[originalWindowWidth][originalFontSize]['MinFont'];
+        if(newFontSize < fontMap[originalWindowWidth][originalFontSize]['MinFont']){
+            newFontSize = fontMap[originalWindowWidth][originalFontSize]['MinFont'];
         }
 
         targetElement.style.fontSize = (newFontSize + 'px');
