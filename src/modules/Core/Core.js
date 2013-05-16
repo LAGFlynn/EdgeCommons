@@ -253,7 +253,7 @@ Version 1.0.0
 	}
 
     EC.initializeAndStoreFonts = function(stage){
-        var textElements = sym.$('.resizableText');
+        var textElements = stage.$('.resizableText');
         for(var i = 0; i<textElements.length; i++){
             var targetElement = textElements[i];
             var fontSize = targetElement.style.fontSize;
