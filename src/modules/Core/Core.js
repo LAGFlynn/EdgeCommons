@@ -167,6 +167,9 @@ Version 1.0.0
                     _currentAdaptiveLayout = calcLayout;
                     container.html("");
                     var layoutSym = sym.createChildSymbol("layout"+calcLayout, adaptiveContainer);
+                    
+                    EC.reinitializeFonts(layoutSym.getComposition().getStage());
+                    
                     // Optional callback
                     if ( typeof(_adaptiveLayoutCallback) == "function" ) {
                         _adaptiveLayoutCallback( calcLayout, layoutSym );

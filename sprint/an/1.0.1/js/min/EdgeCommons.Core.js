@@ -195,6 +195,7 @@
           _currentAdaptiveLayout = calcLayout;
           container.html("");
           var layoutSym = sym.createChildSymbol("layout" + calcLayout, adaptiveContainer);
+          EC.reinitializeFonts(layoutSym.getComposition().getStage());
           if(typeof _adaptiveLayoutCallback == "function") {
             _adaptiveLayoutCallback(calcLayout, layoutSym)
           }
