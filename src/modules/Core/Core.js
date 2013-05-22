@@ -282,8 +282,14 @@ Version 1.0.0
 
         var newFontSize = originalFontSize * widthRatio;
         newFontSize = Math.round(newFontSize);
-        if(newFontSize < fontMap[originalWindowWidth][originalFontSize]['MinFont']){
-            newFontSize = fontMap[originalWindowWidth][originalFontSize]['MinFont'];
+        if(fontMap[originalWindowWidth][originalFontSize] != undefined) {
+          if(newFontSize < fontMap[originalWindowWidth][originalFontSize]['MinFont']){
+              newFontSize = fontMap[originalWindowWidth][originalFontSize]['MinFont'];
+        }
+        } else {
+          console.log("The font size with the original window width doesnt exist");
+          console.log("The font size: " + originalFontSize);
+          console.log("The original width size: " + originalWindowWidth);
         }
 
         targetElement.style.fontSize = (newFontSize + 'px');

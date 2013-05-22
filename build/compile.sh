@@ -2,7 +2,7 @@
 echo "Compiling...";
 
 # VARIABLES
-VERSION="1.0.0"
+VERSION="1.0.1"
 LICENSE="// EdgeCommons v$VERSION +++ Visit edgecommons.org for documentation, updates and examples +++ Copyright (c) 2013 by Simon Widjaja +++ Distributed under the terms of the MIT license (http://www.opensource.org/licenses/mit-license.html) +++ This notice shall be included in all copies or substantial portions of the Software." 
 
 # PREPARE
@@ -54,8 +54,8 @@ echo "Job done: Experimental";
 ##########################################
 FILE="../sprint/an/$VERSION/js/min/EdgeCommons.js"
 java -jar compiler.jar \
-    --compilation_level SIMPLE_OPTIMIZATIONS \
-    --formatting PRINT_INPUT_DELIMITER \
+    --compilation_level WHITESPACE_ONLY \
+    --formatting PRETTY_PRINT \
     --js_output_file $FILE \
     --js ../src/libs/Modulog-0.0.2.js \
     --js ../src/EdgeCommons.js \
@@ -74,8 +74,8 @@ echo "Job done: All-in-One";
 ##########################################
 FILE="../sprint/an/$VERSION/js/min/EdgeCommons.Core.js"
 java -jar compiler.jar \
-    --compilation_level SIMPLE_OPTIMIZATIONS \
-    --formatting PRINT_INPUT_DELIMITER \
+    --compilation_level WHITESPACE_ONLY \
+    --formatting PRETTY_PRINT \
     --js_output_file $FILE \
     --js ../src/libs/Modulog-0.0.2.js \
     --js ../src/EdgeCommons.js \
